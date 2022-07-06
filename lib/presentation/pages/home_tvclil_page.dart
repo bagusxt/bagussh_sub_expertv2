@@ -8,12 +8,14 @@ import 'package:sub_bagussh/presentation/pages/top_rated_tvclil_page.dart';
 import 'package:sub_bagussh/presentation/pages/tvclil_detail_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_movies_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_tvclil_page.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/tvclil_list_notifier.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/now_air/tv_now_air_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTvclilPage extends StatefulWidget {
   @override
@@ -24,11 +26,11 @@ class HomeTvclilPage extends StatefulWidget {
 class _HomeTvclilPageState extends State<HomeTvclilPage> {
   @override
   void initState() {
-    super.initState();
-    Future.microtask(() => Provider.of<TvclilListNotifier>(context, listen: false)
-      ..fetchNowPlayingTv()
-      ..fetchPopularTv()
-      ..fetchTopRatedTv());
+    Future.microtask((){
+      context.read<TvOnAirBloc>().add(TvOnAirGetEvent());
+      context.read<TvPopularBloc>().add(TvPopularGetEvent());
+      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+      });
   }
 
   @override
@@ -121,54 +123,61 @@ class _HomeTvclilPageState extends State<HomeTvclilPage> {
                 'Now Playing',
                 style: kHeading6,
               ),
-              Consumer<TvclilListNotifier>(builder: (context, data, child) {
-                final state = data.nowPlayingTvState;
-                if (state == RequestState.Loading) {
-                  return Center(
+               BlocBuilder<TvOnAirBloc, TvOnAirState>(
+              builder: (context, state) {
+                if (state is TvOnAirLoading) {
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
-                  return TvList(data.nowPlayingTv);
+                } else if (state is TvOnAirLoaded) {
+                  return TvList(state.result);
+                } else if (state is TvOnAirError) {
+                  return Text(state.message);
                 } else {
-                  return Text
-                  ('Failed');
+                  return const Text('Failed');
                 }
-              }),
+              },
+            ),
               _buildSubHeading(
                 title: 'Popular',
                 onTap: () => Navigator.pushNamed(
                     context, PopularTvclilPage.ROUTE_NAME),
               ),
-              Consumer<TvclilListNotifier>(builder: (context, data, child) {
-                final state = data.popularTvState;
-                if (state == RequestState.Loading) {
-                  return Center(
+             BlocBuilder<TvPopularBloc, TvPopularState>(
+              builder: (context, state) {
+                if (state is TvPopularLoading) {
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
-                  return TvList(data.popularTv);
+                } else if (state is TvPopularLoaded) {
+                  return TvList(state.result);
+                } else if (state is TvPopularError) {
+                  return Text(state.message);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
-              }),
+              },
+            ),
               _buildSubHeading(
                 title: 'Top Rated',
                 onTap: () => Navigator.pushNamed(
                     context, TopRatedTvclilPage.ROUTE_NAME),
               ),
-              Consumer<TvclilListNotifier>(builder: (context, data, child) {
-                final state = data.topRatedTvState;
-                if (state == RequestState.Loading) {
-                  return Center(
+               BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+              builder: (context, state) {
+                if (state is TvTopRatedLoading) {
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
-                  return TvList(data.topRatedTv);
+                } else if (state is TvTopRatedLoaded) {
+                  return TvList(state.result);
+                } else if (state is TvTopRatedError) {
+                  return Text(state.message);
                 } else {
-                  return Text
-                  ('Failed');
+                  return const Text('Failed');
                 }
-              }),
+              },
+            ),
             ],
           ),
         ),

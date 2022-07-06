@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/top_rated_tvclil_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 import 'package:sub_bagussh/common/state_enum.dart';
 
@@ -15,9 +15,9 @@ class _TopRatedTvPageState extends State<TopRatedTvclilPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<TopRatedTvclilNotifier>(context, listen: false)
-            .fetchTopRatedTv());
+    Future.microtask(() {
+      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+    });
   }
 
   @override
@@ -29,28 +29,24 @@ class _TopRatedTvPageState extends State<TopRatedTvclilPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<TopRatedTvclilNotifier>(
-          builder: 
-          (context, data, child) {
-            if 
-            (data.state == RequestState.Loading) {
-              return Center(
+        child: BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+          builder: (context, state) {
+            if (state is TvTopRatedLoading) {
+              return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if 
-            (data.state == RequestState.Loaded) {
+            } else if (state is TvTopRatedLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvs = data.tv[index];
+                  final tvs = state.result[index];
                   return TvclilCard(tvs);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
             } else {
               return Center(
-                key: Key
-                ('error_message'),
-                child: Text(data.message),
+                key: Key('error_message'),
+                child: Text("Error"),
               );
             }
           },

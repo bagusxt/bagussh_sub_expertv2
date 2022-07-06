@@ -17,18 +17,21 @@ import 'package:sub_bagussh/presentation/pages/top_rated_tvclil_page.dart';
 import 'package:sub_bagussh/presentation/pages/tvclil_detail_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_movies_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_tvclil_page.dart';
-import 'package:sub_bagussh/presentation/provider/movies/movie_detail_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/movies/movie_list_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/movies/movie_search_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/movies/popular_movies_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/movies/top_rated_movies_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/movies/watchlist_movie_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/popular_tvclil_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/top_rated_tvclil_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/tvclil_detail_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/tvclil_list_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/tvclil_search_notifier.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/watchlist_tvclil_notifier.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_detail/movie_detail_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/now_play/movie_now_play_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/populares/movie_popular_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/recommend/movie_recommend_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_search/movie_search_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/top_rated/movie_top_rated_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/details/tv_detail_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/now_air/tv_now_air_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/recommend/tv_recommend_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/search/tv_search_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:sub_bagussh/injection.dart' as di;
 
@@ -43,53 +46,50 @@ class MyApp extends StatelessWidget {
     return 
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <MovieListNotifier>(),
+        /// bloc movie
+        BlocProvider(
+          create: (_) => di.locator<MovieDetailBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <MovieDetailNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MoviePopularBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <MovieSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieRecommendationBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <TopRatedMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieSearchBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <PopularMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieTopRatedBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <WatchlistMovieNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieNowPlayingBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <TvclilListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieWatchlistBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <TvclilDetailNotifier>(),
+
+        /// bloc tv
+        BlocProvider(
+          create: (_) => di.locator<TvDetailBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <TvclilSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvRecommendationBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <TopRatedTvclilNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvSearchBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <PopularTvclilNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvPopularBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator
-          <WatchlistTvclilNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvTopRatedBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvOnAirBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvWatchlistBloc>(),
         ),
       ],
       child: MaterialApp(

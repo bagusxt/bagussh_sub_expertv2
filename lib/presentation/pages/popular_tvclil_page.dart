@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sub_bagussh/common/state_enum.dart';
-import 'package:sub_bagussh/presentation/provider/tvclil/popular_tvclil_notifier.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 
 class PopularTvclilPage extends StatefulWidget {
@@ -15,9 +15,9 @@ class _PopularTvPageState extends State<PopularTvclilPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<PopularTvclilNotifier>(context, listen: false)
-            .fetchPopularTv());
+    Future.microtask((){
+      context.read<TvPopularBloc>().add(TvPopularGetEvent());
+    });
   }
 
   @override
@@ -29,27 +29,24 @@ class _PopularTvPageState extends State<PopularTvclilPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<PopularTvclilNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
-              return Center(
+        child: BlocBuilder<TvPopularBloc, TvPopularState>(
+          builder: (context, state) {
+            if (state is TvPopularLoading) {
+              return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is TvPopularLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvs = data.tv[index];
+                  final tvs = state.result[index];
                   return TvclilCard(tvs);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
             } else {
               return Center(
-                key: Key
-                ('error_message'),
-                child: 
-                Text
-                (data.message),
+                key: Key('error_message'),
+                child: Text("Error"),
               );
             }
           },
