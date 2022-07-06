@@ -41,7 +41,9 @@ class _TvDetailPageState extends State<TvclilDetailPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+    TvRecommendationState tvRecommendations =
+        context.watch<TvRecommendationBloc>().state;
     return Scaffold(
       body: BlocListener<TvWatchlistBloc, TvWatchlistState>(
       listener: (_, state) {
