@@ -43,6 +43,8 @@ final testWatchlistTv
   overview: 'overview',
 );
 
+final testWatchlistTvList = [testWatchlistTv];
+
 final testTvTable = TvclilTable(
   id: 1,
   name: 'name',

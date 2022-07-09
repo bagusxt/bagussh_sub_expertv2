@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/search/tv_search_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 import 'package:sub_bagussh/common/constants.dart';
+
 
 class SearchTvclilPage extends StatelessWidget {
   static const ROUTE_NAME = '/search-tv';

@@ -44,6 +44,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -63,6 +67,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -80,6 +88,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -97,6 +109,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -114,6 +130,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -131,6 +151,10 @@ class TvclilRepositoryImpl implements TvclilRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override

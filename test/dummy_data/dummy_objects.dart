@@ -45,6 +45,8 @@ final testWatchlistMovie = Movie.watchlist(
   overview: 'overview',
 );
 
+final testWatchlistMovieList = [testWatchlistMovie];
+
 final testMovieTable = MovieTable(
   id: 1,
   title: 'title',

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'package:sub_bagussh/presentation/bloc/tv/details/tv_detail_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/recommend/tv_recommend_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
 
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil_detail.dart';

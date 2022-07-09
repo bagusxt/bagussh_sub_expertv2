@@ -28,24 +28,21 @@ import 'package:sub_bagussh/domain/usecases/tvclil/get_watchlist_tvclil.dart';
 import 'package:sub_bagussh/domain/usecases/tvclil/remove_watchlist_tvclil.dart';
 import 'package:sub_bagussh/domain/usecases/tvclil/save_watchlist_tvclil.dart';
 import 'package:sub_bagussh/domain/usecases/tvclil/search_tvclil.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/movie_detail/movie_detail_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/now_play/movie_now_play_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/populares/movie_popular_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/recommend/movie_recommend_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/movie_search/movie_search_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/top_rated/movie_top_rated_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
+
+
+import 'package:sub_bagussh/common/ssl_pinning.dart';
+
 import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/details/tv_detail_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/now_air/tv_now_air_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/recommend/tv_recommend_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/search/tv_search_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
+
 import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 
-import 'package:http/http.dart' as http;
+
 
 final locator = GetIt.instance;
 
@@ -189,8 +186,9 @@ void init() {
 
   // helper
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
-  locator.registerLazySingleton<DatabaseHelperTvclil>(() => DatabaseHelperTvclil());
+  locator.registerLazySingleton<DatabaseHelperTvclil>(
+    () => DatabaseHelperTvclil());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => SSLPinning.client);
 }

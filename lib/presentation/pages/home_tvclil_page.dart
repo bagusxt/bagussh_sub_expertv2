@@ -8,12 +8,11 @@ import 'package:sub_bagussh/presentation/pages/top_rated_tvclil_page.dart';
 import 'package:sub_bagussh/presentation/pages/tvclil_detail_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_movies_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_tvclil_page.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/now_air/tv_now_air_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

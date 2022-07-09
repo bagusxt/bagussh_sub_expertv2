@@ -8,7 +8,7 @@ class GetTvclilDetail
 {
   final 
   TvclilRepository
-   repository;
+  repository;
 
   GetTvclilDetail
   (this.repository);

@@ -1,4 +1,3 @@
-import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -9,8 +8,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie_detail.dart';
 
-import 'package:sub_bagussh/presentation/bloc/movie/movie_detail/movie_detail_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/recommend/movie_recommend_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
+
 import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
 
 

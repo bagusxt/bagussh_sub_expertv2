@@ -1,7 +1,5 @@
 import 'package:sub_bagussh/common/constants.dart';
-import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'package:sub_bagussh/presentation/pages/about_page.dart';
 import 'package:sub_bagussh/presentation/pages/home_tvclil_page.dart';
@@ -11,10 +9,7 @@ import 'package:sub_bagussh/presentation/pages/search_page.dart';
 import 'package:sub_bagussh/presentation/pages/top_rated_movies_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_movies_page.dart';
 import 'package:sub_bagussh/presentation/pages/watchlist_tvclil_page.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/now_play/movie_now_play_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/populares/movie_popular_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/top_rated/movie_top_rated_bloc.dart';
-
+import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

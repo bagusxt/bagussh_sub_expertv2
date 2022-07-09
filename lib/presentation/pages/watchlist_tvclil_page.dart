@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
-import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:sub_bagussh/common/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

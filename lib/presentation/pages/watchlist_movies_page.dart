@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sub_bagussh/common/state_enum.dart';
 import 'package:sub_bagussh/common/utils.dart';
 import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';

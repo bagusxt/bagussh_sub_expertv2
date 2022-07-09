@@ -43,7 +43,12 @@ class MovieRepositoryImpl implements MovieRepository
     {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
-  }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
+    }
+
 
   @override
   Future<Either<Failure, MovieDetail>>
@@ -64,6 +69,10 @@ class MovieRepositoryImpl implements MovieRepository
     {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -76,6 +85,10 @@ class MovieRepositoryImpl implements MovieRepository
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -97,6 +110,10 @@ class MovieRepositoryImpl implements MovieRepository
     {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -115,6 +132,10 @@ class MovieRepositoryImpl implements MovieRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override
@@ -133,6 +154,10 @@ class MovieRepositoryImpl implements MovieRepository
     on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
+       on TlsException {
+      return Left(SslFailure('Certificate unvalid'));
+    }
+  
   }
 
   @override

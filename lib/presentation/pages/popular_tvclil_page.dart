@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sub_bagussh/common/state_enum.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/populares/tv_popular_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 
 class PopularTvclilPage extends StatefulWidget {

@@ -1,5 +1,4 @@
-
-import 'package:sub_bagussh/presentation/bloc/movie/populares/movie_popular_bloc.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';
 
 import 'package:flutter/material.dart';

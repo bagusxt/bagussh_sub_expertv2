@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/top_rate/tv_top_rate_bloc.dart';
+
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
-import 'package:sub_bagussh/common/state_enum.dart';
 
 class TopRatedTvclilPage extends StatefulWidget {
   static const ROUTE_NAME = '/top-rated-tv';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sub_bagussh/common/constants.dart';
 
-import '../../common/constants.dart';
-
 class AboutPage extends StatelessWidget {
   static const ROUTE_NAME = '/about';
 
