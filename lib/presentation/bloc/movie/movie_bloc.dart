@@ -58,6 +58,7 @@ class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
   }
 }
 
+
 //toprated
 class MovieTopRatedBloc extends Bloc<MovieTopRatedEvent, MovieTopRatedState> {
   final GetTopRatedMovies getTopRatedMovies;
