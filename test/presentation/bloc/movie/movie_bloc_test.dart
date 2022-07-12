@@ -56,10 +56,8 @@ void main() {
           [MovieDetailLoading(), const MovieDetailError('Server Failure')],
       verify: (bloc) {
         verify(mockGetMovieDetail.execute(movieId));
+         return movieDetailBloc.state.props;
       },
     );
   });
 }
-
-
-  
