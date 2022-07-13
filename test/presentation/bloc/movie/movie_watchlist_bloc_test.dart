@@ -50,7 +50,7 @@ void main() {
           .thenAnswer((_) async => Right(testWatchlistMovieList));
       return movieWatchlistBloc;
     },
-    act: (bloc) => bloc.add(GetListEvent()),
+    act: (bloc) => bloc.add(WatchListEvent()),
     expect: () =>
         [MovieWatchlistLoading(), MovieWatchlistLoaded(testWatchlistMovieList)],
     verify: (bloc) {
@@ -65,7 +65,7 @@ void main() {
           .thenAnswer((_) async => Left(ServerFailure("Can't get data")));
       return movieWatchlistBloc;
     },
-    act: (bloc) => bloc.add(GetListEvent()),
+    act: (bloc) => bloc.add(WatchListEvent()),
     expect: () =>
         [MovieWatchlistLoading(), const MovieWatchlistError("Can't get data")],
     verify: (bloc) {

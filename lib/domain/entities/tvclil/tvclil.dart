@@ -1,82 +1,153 @@
 import 'package:equatable/equatable.dart';
 
-class Tvclil extends Equatable {
-  Tvclil({
-    required 
-    this.backdropPath,
-    required 
-    this.genreIds,
-    required 
-    this.id,
-    required 
-    this.originalName,
-    required 
-    this.overview,
-    required 
-    this.popularity,
-    required 
-    this.posterPath,
-    required 
-    this.firstAirDate,
-    required 
-    this.name,
-    required 
-    this.voteAverage,
-    required 
-    this.voteCount,
-  });
+class 
+  Tvclil
+  
+extends 
+  Equatable {
 
-  Tvclil.watchlist({
-    required 
-    this.id,
-    required 
-    this.overview,
-    required 
-    this.posterPath,
-    required 
-    this.name,
-  });
+Tvclil(
 
-  String? backdropPath;
-  List<int>? genreIds;
-  int id;
-  String? 
-  originalName;
-  String? 
-  overview;
-  double? 
-  popularity;
-  String? 
-  posterPath;
-  String? 
-  firstAirDate;
-  String? 
-  name;
-  double? 
-  voteAverage;
-  int? 
-  voteCount;
+{
 
-  @override
-  List<Object?> 
-  get props 
-  => 
-  [
-    backdropPath,
+required 
+  this
+    .backdropPath,
+required 
+  this
+    .genreIds,
+required 
+  this
+    .id,
+
+
+required 
+  this
+    .originalName,
+required 
+  this
+    .overview,
+ required 
+  this
+    .popularity,
+
+
+required 
+  this
+    .posterPath,
+required 
+  this
+    .firstAirDate,
+required 
+  this
+    .name,
+
+required 
+  this
+    .voteAverage,
+required 
+    this
+      .voteCount,
+
+    }
+  
+  );
+
+  Tvclil
+    .watchlist(
+
+  {
+    
+  required 
+    this
+      .id,
+
+
+  required 
+    this
+      .overview,
+
+
+  required 
+    this
+      .posterPath,
+
+
+  required 
+    this
+      .name,
+
+
+    }
+  
+  );
+
+    String?
+ backdropPath;
+ 
+       List
+    <int>? 
+genreIds;
+
+
+  int 
+id;
+
+
+    String? 
+originalName;
+
+
+    String? 
+overview;
+
+
+    double? 
+popularity;
+
+    String? 
+posterPath;
+
+
+    String? 
+firstAirDate;
+
+
+    String? 
+name;
+
+
+    double? 
+voteAverage;
+
+
+    int? 
+voteCount;
+
+@override
+
+  List
+    <Object?> 
+      get props => 
+[
+ backdropPath,
     genreIds,
 
-    id,
+
+  id,
     originalName,
+       overview,
 
-    overview,
-    popularity,
 
+  popularity,
     posterPath,
-    firstAirDate,
+      firstAirDate,
 
-    name,
+
+  name,
     voteAverage,
+     voteCount,
 
-    voteCount,
   ];
+  
 }

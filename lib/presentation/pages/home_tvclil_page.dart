@@ -16,8 +16,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-
 class HomeTvclilPage extends StatefulWidget {
   @override
   _HomeTvclilPageState createState() => _HomeTvclilPageState();
@@ -107,20 +105,19 @@ class _HomeTvclilPageState extends State<HomeTvclilPage> {
         ('TV'),
         actions: [
           IconButton(
-          onPressed: () {
-          FirebaseCrashlytics.instance.crash();
-          Navigator.pushNamed(context,SearchTvclilPage.ROUTE_NAME);
-        },
-          icon: Icon(Icons.search),
-        )
-        //   IconButton(
-        //     onPressed: () {
-        //       Navigator.pushNamed(context, SearchTvclilPage.ROUTE_NAME);
-        //     },
-        //     icon: Icon(Icons.search),
-        //   )
+            onPressed: () {
+              Navigator.pushNamed(context, SearchTvclilPage.ROUTE_NAME);
+            },
+             icon: Icon(Icons.search),
+           )
         ],
       ),
+        //  IconButton(
+        //  onPressed: () {
+        //  FirebaseCrashlytics.instance.crash();
+        //  Navigator.pushNamed(context,SearchTvclilPage.ROUTE_NAME);
+        // },
+        // )
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(

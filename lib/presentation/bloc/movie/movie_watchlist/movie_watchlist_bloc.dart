@@ -10,7 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'movie_watchlist_event.dart';
 part 'movie_watchlist_state.dart';
 
-class MovieWatchlistBloc extends Bloc<MovieWatchlistEvent, MovieWatchlistState> {
+class MovieWatchlistBloc 
+
+extends Bloc<MovieWatchlistEvent, MovieWatchlistState> {
+
   static const watchlistAddSuccessMessage = 'Added to Watchlist';
   static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
@@ -25,7 +28,7 @@ class MovieWatchlistBloc extends Bloc<MovieWatchlistEvent, MovieWatchlistState> 
     required this.saveWatchlist,
     required this.removeWatchlist,
   }) : super(MovieWatchlistEmpty()) {
-    on<GetListEvent>((event, emit) async {
+    on<WatchListEvent>((event, emit) async {
       emit(MovieWatchlistLoading());
       final result = await getWatchlistMovies.execute();
 

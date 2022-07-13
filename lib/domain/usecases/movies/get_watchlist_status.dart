@@ -1,16 +1,28 @@
 import 'package:sub_bagussh/domain/repositories/movie_repository.dart';
 
-class GetWatchListStatus {
+class 
+  GetWatchListStatus 
+{
   final 
-  MovieRepository 
-  repository;
+    MovieRepository 
+      repository;
 
   GetWatchListStatus
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<bool> 
-  execute(int id) async
+  Future
+    <bool> 
+  execute
+  (
+    int id
+  ) 
+
+  async
   {
-    return repository.isAddedToWatchlist(id);
+    return 
+      repository.isAddedToWatchlist(id);
   }
+  
 }

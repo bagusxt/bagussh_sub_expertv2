@@ -1,17 +1,34 @@
 import 'package:sub_bagussh/domain/repositories/tvclil_repository.dart';
 
-class GetWatchListStatusTvclil 
+class
+   GetWatchListStatusTvclil 
 {
+  
   final
-  TvclilRepository 
+    TvclilRepository 
+
   repository;
+    GetWatchListStatusTvclil
 
-  GetWatchListStatusTvclil
-  (this.repository);
+(
+  this.repository
+);
 
-  Future<bool> 
-  execute(int id) async 
-  {
-    return repository.isAddedToWatchlistTv(id);
+  Future
+    <bool> 
+
+  execute
+  (
+    int id
+  ) 
+
+async{
+    return 
+      repository.isAddedToWatchlistTv
+  (
+    id
+  );
+  
   }
+  
 }

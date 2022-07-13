@@ -4,17 +4,33 @@ import 'package:sub_bagussh/domain/repositories/tvclil_repository.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetWatchlistTvclil {
+class 
+  GetWatchlistTvclil 
+{
+
   final 
-  TvclilRepository 
-  _repository;
+    TvclilRepository 
+      _repository;
 
   GetWatchlistTvclil
-  (this._repository);
+  (
+    this
+      ._repository
+  );
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  execute() {
-  return _repository.getWatchlistTv();
+  Future
+    <Either
+    
+  <Failure, 
+    List
+
+  <Tvclil>>> 
+    execute()
+  {
+  return 
+    _repository
+      .getWatchlistTv(
+
+    );
   }
 }

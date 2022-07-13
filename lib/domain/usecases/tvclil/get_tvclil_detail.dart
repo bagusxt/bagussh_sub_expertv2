@@ -4,18 +4,35 @@ import 'package:sub_bagussh/domain/entities/tvclil/tvclil_detail.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetTvclilDetail 
+class 
+  GetTvclilDetail 
 {
   final 
-  TvclilRepository
-  repository;
+    TvclilRepository
+     repository;
 
   GetTvclilDetail
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  TvclilDetail>> 
-  execute(int id) {
-  return repository.getTvDetail(id);
+  Future
+    <Either
+
+  <Failure, 
+    TvclilDetail>> 
+      execute
+  (
+    int id
+  ) 
+
+{
+  return
+     repository.getTvDetail
+  (
+      id
+  );
+
   }
+  
 }

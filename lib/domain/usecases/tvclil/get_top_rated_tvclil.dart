@@ -4,17 +4,30 @@ import 'package:sub_bagussh/domain/repositories/tvclil_repository.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetTopRatedTvclil 
+class 
+  GetTopRatedTvclil 
 {
   final 
-  TvclilRepository 
-  repository;
+    TvclilRepository 
+       repository;
 
   GetTopRatedTvclil
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Tvclil>>> execute() {
-  return repository.getTopRatedTv();
+  Future
+    <Either
+
+  <Failure, 
+     List
+     
+   <Tvclil>>> 
+    execute() 
+  {
+  return 
+    repository.getTopRatedTv
+    ();
   }
+
 }

@@ -20,7 +20,7 @@ class _WatchlistMoviesPageState extends State
     super.initState();
     super.initState();
     Future.microtask(() {
-        context.read<MovieWatchlistBloc>().add(GetListEvent());
+        context.read<MovieWatchlistBloc>().add(WatchListEvent());
       });
   }
 
@@ -34,7 +34,7 @@ class _WatchlistMoviesPageState extends State
 
   void didPopNext() {
     context.read<MovieWatchlistBloc>
-    ().add(GetListEvent());
+    ().add(WatchListEvent());
   }
 
   @override

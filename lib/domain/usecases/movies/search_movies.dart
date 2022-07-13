@@ -4,17 +4,39 @@ import 'package:sub_bagussh/common/failure.dart';
 
 import 'package:dartz/dartz.dart';
 
-class SearchMovies {
+class 
+  SearchMovies 
+
+{
   final 
-  MovieRepository 
-  repository;
+
+   MovieRepository 
+      repository;
 
   SearchMovies
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Movie>>> 
-  execute(String query) {
-  return repository.searchMovies(query);
+  Future
+    <Either
+
+  <Failure, 
+    List
+
+  <Movie>>> 
+     execute
+     
+     (
+
+      String query
+
+     ) 
+     {
+  return 
+    repository.searchMovies
+    (
+      query
+    );
   }
 }

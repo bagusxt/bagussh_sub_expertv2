@@ -4,17 +4,33 @@ import 'package:sub_bagussh/domain/repositories/tvclil_repository.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetNowPlayingTvclil {
+class 
+  GetNowPlayingTvclil 
+  {
+
   final 
-  TvclilRepository 
-  repository;
+    TvclilRepository 
+     repository;
 
   GetNowPlayingTvclil
-  (this.repository);
+  (
+    this
+      .repository
+  );
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  execute() {
-  return repository.getNowPlayingTv();
+  Future
+    <Either
+
+  <Failure, 
+    List
+
+  <Tvclil>>> 
+    execute() 
+  {
+  return 
+    repository.getNowPlayingTv(
+
+    );
   }
+  
 }

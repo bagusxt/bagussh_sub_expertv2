@@ -7,14 +7,26 @@ import 'package:dartz/dartz.dart';
 class GetPopularTvclil 
 {
   final 
-  TvclilRepository 
-  repository;
+    TvclilRepository 
+       repository;
 
   GetPopularTvclil
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Tvclil>>> execute() {
-  return repository.getPopularTv();
+  Future
+    <Either
+
+  <Failure, 
+     List
+
+   <Tvclil>>> 
+    execute() 
+  {
+
+  return
+    repository.getPopularTv();
+    
   }
 }

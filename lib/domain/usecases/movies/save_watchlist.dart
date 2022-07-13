@@ -4,18 +4,37 @@ import 'package:sub_bagussh/common/failure.dart';
 
 import 'package:dartz/dartz.dart';
 
-class SaveWatchlist {
+class 
+  SaveWatchlist 
+{
+  
   final 
-  MovieRepository 
-  repository;
+   MovieRepository 
+    repository;
 
   SaveWatchlist
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  String>> 
-  execute(MovieDetail movie) 
+  Future
+    <Either
+
+  <Failure, 
+    String>> 
+
+  execute
+  (
+    MovieDetail movie
+  ) 
+
   {
-    return repository.saveWatchlist(movie);
+    return 
+      repository.saveWatchlist
+      (
+        movie
+      );
+      
   }
+
 }

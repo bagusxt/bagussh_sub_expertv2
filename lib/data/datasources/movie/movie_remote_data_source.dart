@@ -1,102 +1,146 @@
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:sub_bagussh/common/exception.dart';
-import 'package:sub_bagussh/data/models/movies/movie_detail_model.dart';
+
 import 'package:sub_bagussh/data/models/movies/movie_model.dart';
 import 'package:sub_bagussh/data/models/movies/movie_response.dart';
+import 'package:sub_bagussh/data/models/movies/movie_detail_model.dart';
 
 abstract class MovieRemoteDataSource 
 {
-  Future<List<MovieModel>> 
-  getNowPlayingMovies();
+  Future<List
+    <MovieModel>> 
+      getNowPlayingMovies();
 
-  Future<List<MovieModel>> 
-  getPopularMovies();
+  Future<List
+    <MovieModel>> 
+      getPopularMovies();
 
-  Future<List<MovieModel>>
-  getTopRatedMovies();
+  Future<List
+    <MovieModel>>
+      getTopRatedMovies();
 
-  Future<MovieDetailResponse> 
-  getMovieDetail(int id);
+  Future
+    <MovieDetailResponse> 
+      getMovieDetail(int id);
 
-  Future<List<MovieModel>> 
-  getMovieRecommendations(int id);
+  Future<List
+    <MovieModel>> 
+      getMovieRecommendations(int id);
 
-  Future<List<MovieModel>> 
-  searchMovies(String query);
+  Future<List
+    <MovieModel>> 
+      searchMovies(String query);
 }
 
-class MovieRemoteDataSourceImpl implements MovieRemoteDataSource 
+class 
+  MovieRemoteDataSourceImpl 
+
+implements 
+  MovieRemoteDataSource 
 {
-  static const API_KEY =
-  'api_key=2174d146bb9c0eab47529b2e77d6b526';
 
-  static const BASE_URL = 
-  'https://api.themoviedb.org/3';
+static const 
+    API_KEY =
+    'api_key=2174d146bb9c0eab47529b2e77d6b526';
 
-  final http.Client client;
+static const 
+    BASE_URL = 
+    'https://api.themoviedb.org/3';
 
-  MovieRemoteDataSourceImpl(
-  {required this.client});
+final 
+    http.Client 
+      client;
+
+ MovieRemoteDataSourceImpl(
+   {required 
+      this.client});
 
   @override
-  Future<List<MovieModel>>
-  getNowPlayingMovies() async 
-  {
-    final response = await client.get
-    (Uri.parse('$BASE_URL/movie/now_playing?$API_KEY'));
+    Future
+      <List
+        <MovieModel>> getNowPlayingMovies() async{
 
-    if (response.statusCode == 200) {return MovieResponse.fromJson(json.decode(response.body)).movieList;
+final response = 
+await client.get
+  (Uri.parse
+    ('$BASE_URL/movie/now_playing?$API_KEY'));
+
+    if (response.statusCode == 200) 
+      {return MovieResponse.fromJson
+        (json.decode(response.body)).movieList;
     } 
     else
     {
-    throw ServerException();
+    throw 
+      ServerException();
     }
   }
 
   @override
-  Future<MovieDetailResponse>
-  getMovieDetail(int id) async
+    Future
+      <MovieDetailResponse>
+        getMovieDetail
+          (int id)async
    {
-    final response = await client.get(Uri.parse('$BASE_URL/movie/$id?$API_KEY'));
+    final response = 
+      await client.get
+        (Uri.parse
+          ('$BASE_URL/movie/$id?$API_KEY'));
 
     if 
       (response.statusCode == 200) 
-      {return MovieDetailResponse.fromJson(json.decode(response.body));}
+        {return MovieDetailResponse.fromJson
+          (json.decode(response.body));}
     else
     {
-      throw ServerException();
+      throw 
+        ServerException();
     }
   }
 
   @override
-  Future<List<MovieModel>>
-  getMovieRecommendations(int id) async
+    Future<List
+      <MovieModel>>
+        getMovieRecommendations
+          (int id) async
    {
-    final response = await client
-        .get(Uri.parse('$BASE_URL/movie/$id/recommendations?$API_KEY'));
+    final response =
+       await client
+         .get(Uri.parse
+            ('$BASE_URL/movie/$id/recommendations?$API_KEY'));
 
     if (response.statusCode == 200) 
-    { return MovieResponse.fromJson(json.decode(response.body)).movieList;} 
+    { 
+    return MovieResponse.fromJson(json.decode(response.body)).movieList;} 
+    
     else 
     {
-      throw ServerException();
+    throw 
+      ServerException();
     }
   }
 
   @override
-  Future<List<MovieModel>> 
-  getPopularMovies() async
+    Future
+      <List<MovieModel>> 
+         getPopularMovies() async
   {
-    final response =
-    await client.get
-    (Uri.parse('$BASE_URL/movie/popular?$API_KEY'));
+    final 
+      response =
+
+    await 
+      client.get
+
+    (Uri.parse
+      ('$BASE_URL/movie/popular?$API_KEY'));
 
     if (response.statusCode == 200)
     {return MovieResponse.fromJson(json.decode(response.body)).movieList;} 
     else 
     {
-      throw ServerException();
+      throw 
+        ServerException();
     }
   }
 
@@ -113,7 +157,8 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource
     } 
     else
     {
-      throw ServerException();
+      throw
+         ServerException();
     }
   }
 
@@ -129,7 +174,8 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource
       {return MovieResponse.fromJson(json.decode(response.body)).movieList;} 
     else 
     {
-      throw ServerException();
+    throw 
+      ServerException();
     }
   }
 }

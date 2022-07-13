@@ -4,18 +4,34 @@ import 'package:sub_bagussh/common/failure.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetMovieRecommendations 
+class 
+  GetMovieRecommendations 
 {
+  
   final 
-  MovieRepository 
-  repository;
+   MovieRepository 
+    repository;
 
   GetMovieRecommendations
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Movie>>> 
-  execute(id) {
-    return repository.getMovieRecommendations(id);
+  Future
+    <Either
+
+  <Failure, 
+    List
+
+  <Movie>>> execute
+  (
+    id
+  ) 
+
+  {
+    return 
+      repository.getMovieRecommendations
+      (id);
   }
+
 }

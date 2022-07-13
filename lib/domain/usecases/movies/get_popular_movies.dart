@@ -4,17 +4,31 @@ import 'package:sub_bagussh/common/failure.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetPopularMovies {
+class 
+  GetPopularMovies 
+{
+
   final 
-  MovieRepository 
-  repository;
+   MovieRepository 
+     repository;
 
   GetPopularMovies
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Movie>>> 
-  execute() {
-  return repository.getPopularMovies();
+  Future
+    <Either
+
+  <Failure, 
+     List
+
+  <Movie>>> execute
+  () 
+  
+  {
+  return 
+    repository.getPopularMovies();
   }
+
 }

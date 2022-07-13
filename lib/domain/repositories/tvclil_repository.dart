@@ -4,42 +4,118 @@ import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
 
 import 'package:dartz/dartz.dart';
 
-abstract class TvclilRepository 
+abstract 
+  class 
+    TvclilRepository 
 {
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  getNowPlayingTv();
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  getPopularTv();
+  Future
+    <Either
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  getTopRatedTv();
+  <Failure, 
+    List
 
-  Future<Either<Failure, 
-  TvclilDetail>>
-  getTvDetail(int id);
+  <Tvclil>>> 
+    getNowPlayingTv(
+    
+);
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  getTvRecommendations(int id);
+  Future
+    <Either
+    
+  <Failure, 
+     List
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  searchTv(String query);
+  <Tvclil>>> 
+    getPopularTv(
 
-  Future<Either<Failure, 
-  String>> 
-  saveWatchlistTv(TvclilDetail tv);
+);
 
-  Future<Either<Failure, 
-  String>> 
-  removeWatchlistTv(TvclilDetail tv);
+  Future
+    <Either
 
-  Future<bool> 
-  isAddedToWatchlistTv(int id);
-  Future<Either<Failure, 
-  List<Tvclil>>> getWatchlistTv();
+  <Failure, 
+    List
+
+  <Tvclil>>> 
+    getTopRatedTv(
+
+  );
+
+  Future
+    <Either
+    
+  <Failure, 
+    TvclilDetail>>
+
+  getTvDetail
+
+  (
+    int id
+  );
+
+  Future
+    <Either
+
+  <Failure, 
+    List
+
+  <Tvclil>>> 
+    getTvRecommendations
+    (
+      int id
+    );
+
+  Future
+    <Either
+    
+  <Failure, 
+    List
+    
+  <Tvclil>>> 
+    searchTv
+    (
+      String query
+    );
+
+  Future
+    <Either
+
+  <Failure, 
+    String>> 
+
+  saveWatchlistTv
+    (
+      TvclilDetail tv
+    );
+
+  Future
+    <Either
+
+  <Failure, 
+    String>> 
+
+  removeWatchlistTv
+    (
+      TvclilDetail tv
+    );
+
+  Future
+    <bool> 
+
+  isAddedToWatchlistTv
+  (
+    int id
+  );
+
+  Future
+    <Either
+
+  <Failure, 
+     List
+
+  <Tvclil>>> 
+    getWatchlistTv(
+    
+  );
 }

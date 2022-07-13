@@ -1,4 +1,3 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:sub_bagussh/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
@@ -105,19 +104,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ('Movies'),
         actions: [
           IconButton(
-           onPressed: () {
-            FirebaseCrashlytics.instance.crash();
+            onPressed: () {
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
-        },
-          icon: Icon(Icons.search),
-        )
-          //Firebase crashlytic^
-          // IconButton(
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
-          //   },
-          //   icon: Icon(Icons.search),
-          // )
+            },
+            icon: Icon(Icons.search),
+          )
         ],
       ),
       body: Padding(

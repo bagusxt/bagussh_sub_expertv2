@@ -3,291 +3,533 @@ import 'package:equatable/equatable.dart';
 import 'package:sub_bagussh/data/models/genre_model.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie_detail.dart';
 
-class MovieDetailResponse extends Equatable 
+class
+ MovieDetailResponse
+   extends 
+    Equatable 
+
 {
-  MovieDetailResponse(
-    {
-    required 
-    this.adult,
 
-    required 
-    this.backdropPath,
+MovieDetailResponse(
 
-    required 
-    this.budget,
+{
 
-    required 
-    this.genres,
+  required 
+     this
+      .adult,
 
-    required 
-    this.homepage,
 
-    required 
-    this.id,
+  required 
+     this
+      .backdropPath,
 
-    required 
-    this.imdbId,
 
-    required 
-    this.originalLanguage,
+  required 
+      this
+       .budget,
 
-    required 
-    this.originalTitle,
 
-    required 
-    this.overview,
+  required 
+      this
+        .genres,
 
-    required 
-    this.popularity,
+
+  required 
+      this.
+        homepage,
+
+
+  required 
+      this
+        .id,
+        
+
+  required 
+     this
+      .imdbId,
+
+
+  required 
+      this
+        .originalLanguage,
+
+
+  required 
+     this
+      .originalTitle,
+
+
+  required 
+      this
+        .overview,
+        
+
+  required 
+      this
+       .popularity,
+
     
-    required 
-    this.posterPath,
+  required 
+     this
+      .posterPath,
 
-    required 
-    this.releaseDate,
 
-    required 
-    this.revenue,
+  required 
+      this
+        .releaseDate,
+      
 
-    required 
-    this.runtime,
+  required 
+     this
+      .revenue,
 
-    required 
-    this.status,
 
-    required 
-    this.tagline,
+  required 
+      this
+        .runtime,
 
-    required 
-    this.title,
 
-    required 
-    this.video,
+  required 
+      this
+        .status,
 
-    required 
-    this.voteAverage,
 
-    required 
-    this.voteCount,
+  required 
+      this
+        .tagline,
+        
+
+  required 
+     this
+        .title,
+
+  required 
+     this
+        .video,
+
+  required 
+     this
+        .voteAverage,
+
+  required 
+      this
+        .voteCount,
+        
   }
+
   );
 
-  final bool 
-  adult;
 
-  final String? 
-  backdropPath;
+final 
+  bool 
+   adult;
 
-  final int 
-  budget;
+
+final 
+  String? 
+    backdropPath;
+
+
+final 
+  int 
+   budget;
+
   
-  final List<GenreModel> 
-  genres;
+final 
+  List
+    <GenreModel> 
+      genres;
 
-  final String 
-  homepage;
 
-  final int 
-  id;
+final 
+  String 
+   homepage;
 
-  final String? 
-  imdbId;
 
-  final String 
-  originalLanguage;
+final 
+  int 
+    id;
 
-  final String 
-  originalTitle;
 
-  final String 
-  overview;
+final 
+  String? 
+    imdbId;
 
-  final double 
-  popularity;
 
-  final String
-  posterPath;
+final 
+  String 
+   originalLanguage;
 
-  final String 
-  releaseDate;
 
-  final int 
-  revenue;
+final 
+  String 
+    originalTitle;
 
-  final int
-  runtime;
 
-  final String 
-  status;
+final 
+  String 
+     overview;
 
-  final String 
-  tagline;
 
-  final String 
-  title;
+final 
+  double 
+    popularity;
 
-  final bool 
-  video;
 
-  final double 
-  voteAverage;
+final 
+  String
+   posterPath;
 
-  final int 
-  voteCount;
 
-  factory MovieDetailResponse.fromJson
-  (Map<String, dynamic>
-  json) =>
-      MovieDetailResponse(
-        adult: json
-        ["adult"],
-        backdropPath: json
+final 
+  String 
+    releaseDate;
+
+
+final 
+  int 
+   revenue;
+
+
+final 
+  int
+    runtime;
+
+
+final 
+  String 
+    status;
+
+
+final 
+  String 
+    tagline;
+
+
+final 
+  String 
+    title;
+
+
+final 
+  bool 
+    video;
+
+
+final 
+  double 
+    voteAverage;
+
+
+  final 
+    int 
+      voteCount;
+
+factory 
+  MovieDetailResponse
+    .fromJson
+
+(Map<String, 
+  dynamic>
+    json) =>
+
+MovieDetailResponse(
+
+adult: json
+    ["adult"],
+      backdropPath: json
         ["backdrop_path"],
-        budget: json
-        ["budget"],
+          budget: json
+           ["budget"],
 
-        genres: List<GenreModel>.from(
-            json
-            ["genres"].map((x) => GenreModel.fromJson(x))),
-        homepage: json
-        ["homepage"],
-        id: json
-        ["id"],
-        imdbId: json
-        ["imdb_id"],
-        originalLanguage: json
-        ["original_language"],
-        originalTitle: json
-        ["original_title"],
-        overview: json
-        ["overview"],
-        popularity: json
-        ["popularity"].toDouble(),
-        posterPath: json
-        ["poster_path"],
-        releaseDate: json
-        ["release_date"],
-        revenue: json
-        ["revenue"],
-        runtime: json
-        ["runtime"],
-        status: json
-        ["status"],
-        tagline: json
-        ["tagline"],
-        title: json
-        ["title"],
-        video: json
-        ["video"],
-        voteAverage: json
-        ["vote_average"].toDouble(),
-        voteCount: json
-        ["vote_count"],
-      );
 
-  Map<String, dynamic> toJson() 
-  =>
-  {
-    "adult":
-     adult,
+genres: 
+    List<GenreModel>
+      .from(
+        json
+          ["genres"].map
+            ((x) 
+              => GenreModel.fromJson(x))),
 
-    "backdrop_path":
-     backdropPath,
 
-    "budget": 
-     budget,
+homepage: json
+   ["homepage"],
 
-    "genres": 
-    List<dynamic>.from(genres.map((x) => x.toJson())),
 
-    "homepage": 
-    homepage,
+id: json
+   ["id"],
+   
 
-    "id": 
-     id,
+imdbId: json
+   ["imdb_id"],
 
-    "imdb_id": 
-     imdbId,
 
-    "original_language": 
+originalLanguage: json
+   ["original_language"],
+
+
+originalTitle: json
+   ["original_title"],
+
+
+overview: json
+   ["overview"],
+   
+
+popularity: json
+   ["popularity"].
+
+
+toDouble(),
+
+
+posterPath: json
+   ["poster_path"],
+
+
+releaseDate: json
+   ["release_date"],
+
+
+revenue: json
+   ["revenue"],
+
+
+runtime: json
+   ["runtime"],
+
+
+status: json
+   ["status"],
+
+
+tagline: json
+   ["tagline"],
+
+
+title: json
+   ["title"],
+
+
+video: json
+   ["video"],
+
+
+voteAverage: json
+    ["vote_average"].toDouble(),
+
+    
+voteCount: json
+    ["vote_count"],
+
+);
+
+Map<String, 
+  dynamic> 
+    toJson() 
+       =>
+
+{
+
+"adult":
+    adult,
+
+
+"backdrop_path":
+    backdropPath,
+
+
+"budget": 
+    budget,
+
+
+"genres": 
+    List
+      <dynamic>
+        .from
+          (genres.map
+            ((x) => x.toJson())
+),
+
+
+ "homepage": 
+     homepage,
+
+
+"id": 
+    id,
+
+
+"imdb_id": 
+    imdbId,
+
+
+"original_language": 
      originalLanguage,
 
-    "original_title": 
+
+"original_title": 
      originalTitle,
 
-    "overview": 
+
+"overview": 
      overview,
 
-    "popularity": 
+
+"popularity": 
      popularity,
 
-    "poster_path": 
+
+"poster_path": 
      posterPath,
 
-    "release_date": 
+
+"release_date": 
      releaseDate,
 
-    "revenue": 
+
+"revenue": 
      revenue,
      
-    "runtime": 
+
+"runtime": 
      runtime,
 
-    "status": 
+
+"status": 
      status,
      
-    "tagline": 
+
+"tagline": 
      tagline,
 
-    "title": 
+
+"title": 
      title,
 
-    "video": 
+
+"video": 
      video,
 
-    "vote_average": 
+
+"vote_average": 
      voteAverage,
 
-    "vote_count": 
-     voteCount,
-  };
 
-  MovieDetail toEntity() 
-  {
-    return MovieDetail(
-      adult: 
-      this.adult,
-      backdropPath: 
-      this.backdropPath,
-      genres: 
-      this.genres.map((genre) => genre.toEntity()).toList(),
-      id:
-      this.id,
-      originalTitle: 
-      this.originalTitle,
-      overview: 
-      this.overview,
-      posterPath: 
-      this.posterPath,
-      releaseDate: 
-      this.releaseDate,
-      runtime: 
-      this.runtime,
-      title: 
-      this.title,
-      voteAverage: 
-      this.voteAverage,
+"vote_count": 
+     voteCount,
+
+};
+
+
+MovieDetail 
+    toEntity
+() 
+
+{
+
+return 
+  MovieDetail(
+
+adult: 
+   this
+    .adult,
+
+
+backdropPath: 
+    this
+      .backdropPath,
+
+
+genres: 
+    this
+      .genres
+        .map
+          ((genre) 
+            => genre
+              .toEntity
+                ())
+                  .toList(),
+
+
+id:
+  this
+    .id,
+
+
+originalTitle: 
+  this
+    .originalTitle,
+
+
+overview: 
+  this
+    .overview,
+
+
+posterPath: 
+  this
+    .posterPath,
+
+
+releaseDate: 
+  this
+    .releaseDate,
+
+
+runtime: 
+  this
+    .runtime,
+
+
+title: 
+  this
+    .title,
+
+
+voteAverage: 
+  this
+    .voteAverage,
       voteCount: 
-      this.voteCount,
-    );
-  }
+       this.voteCount,
+
+  );
+}
 
   @override
 
-  List<Object?> 
-  get props => 
+  List
+    <Object?> 
+      get props 
+        => 
+
   [
-    adult,backdropPath,budget,genres,homepage, id,imdbId,originalLanguage,originalTitle,overview,
-    popularity,posterPath,releaseDate,revenue,runtime,status,tagline,title,video,voteAverage,voteCount,
+    
+  adult,
+    backdropPath,
+      budget,
+        genres,
+          homepage, 
+
+   id,
+    imdbId,
+      originalLanguage,
+        originalTitle,
+          overview,
+
+    popularity,
+      posterPath,
+        releaseDate,
+          revenue,
+            runtime,
+            
+     status,
+      tagline,
+        title,
+          video,
+            voteAverage,
+              voteCount,
+
   ];
+
 }

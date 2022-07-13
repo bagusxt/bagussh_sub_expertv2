@@ -3,17 +3,37 @@ import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
 import 'package:sub_bagussh/common/failure.dart';
 
 import 'package:dartz/dartz.dart';
-class GetTvclilRecommendations 
+class 
+  GetTvclilRecommendations 
 {
-  final 
+
+final 
   TvclilRepository
-  repository;
+     repository;
 
-  GetTvclilRecommendations
-  (this.repository);
+GetTvclilRecommendations
+(
+  this.repository
+);
 
-  Future<Either<Failure, 
-  List<Tvclil>>> execute(id) {
-  return repository.getTvRecommendations(id);
+Future
+  <Either
+
+<Failure, 
+  List
+
+<Tvclil>>> 
+  execute
+(
+    id
+) 
+
+{
+  return
+     repository.getTvRecommendations
+(
+      id
+    );
   }
+  
 }

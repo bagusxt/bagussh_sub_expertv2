@@ -4,16 +4,35 @@ import 'package:sub_bagussh/domain/repositories/movie_repository.dart';
 
 import 'package:dartz/dartz.dart';
 
-class GetTopRatedMovies {
+class 
+  GetTopRatedMovies 
+{
+
   final 
-  MovieRepository 
-  repository;
+   MovieRepository 
+     repository;
 
   GetTopRatedMovies
-  (this.repository);
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  List<Movie>>> execute() {
-  return repository.getTopRatedMovies();
+  Future
+    <Either
+
+  <Failure, 
+    List
+
+  <Movie>>> 
+    execute() 
+  {
+
+  return 
+    repository
+      .getTopRatedMovies
+        (
+          
+        );
   }
+
 }

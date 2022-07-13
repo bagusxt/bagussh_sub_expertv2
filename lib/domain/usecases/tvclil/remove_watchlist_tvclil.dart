@@ -6,16 +6,35 @@ import 'package:dartz/dartz.dart';
 
 class RemoveWatchlistTvclil 
 {
-  final 
+
+final 
   TvclilRepository 
-  repository;
+    repository;
 
-  RemoveWatchlistTvclil
-  (this.repository);
+RemoveWatchlistTvclil
+  (
+    this.repository
+  );
 
-  Future<Either<Failure, 
-  String>> 
-  execute(TvclilDetail tv) {
-  return repository.removeWatchlistTv(tv);
+  Future
+    <Either
+
+  <Failure, 
+    String>> 
+    
+  execute
+  (
+    TvclilDetail tv
+  ) 
+
+  {
+
+  return 
+    repository.removeWatchlistTv
+    (
+      tv
+    );
+    
   }
+  
 }

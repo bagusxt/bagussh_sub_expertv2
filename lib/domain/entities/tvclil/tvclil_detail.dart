@@ -1,69 +1,132 @@
 import 'package:equatable/equatable.dart';
 import 'package:sub_bagussh/domain/entities/genre.dart';
 
-class TvclilDetail extends Equatable 
-{
-  TvclilDetail({
-    required 
-    this.backdropPath,
-    required 
-    this.genres,
-    required 
-    this.id,
-    required 
-    this.originalName,
-    required 
-    this.overview,
-    required 
-    this.posterPath,
-    required 
-    this.firstAirDate,
-    required
-    this.name,
-    required 
-    this.voteAverage,
-    required 
-    this.voteCount,
-  });
+class 
+  TvclilDetail 
 
-  final String? 
-  backdropPath;
-  final List<Genre> 
-  genres;
-  final int
-  id;
-  final String 
-  originalName;
-  final String 
-  overview;
-  final String 
-  posterPath;
-  final String 
-  firstAirDate;
-  final String 
-  name;
-  final double 
-  voteAverage;
-  final int 
-  voteCount;
+extends 
+  Equatable 
+
+{
+  TvclilDetail(
+
+{
+
+  required 
+    this
+      .backdropPath,
+  required 
+    this
+      .genres,
+  required 
+    this
+      .id,
+
+
+  required 
+    this
+      .originalName,
+  required 
+    this
+      .overview,
+  required 
+    this
+      .posterPath,
+
+
+  required 
+    this
+      .firstAirDate,
+  required
+    this
+      .name,
+  required 
+    this
+      .voteAverage,
+
+
+  required 
+    this
+      .voteCount,
+      
+  }
+
+);
+
+  final 
+    String? 
+      backdropPath;
+
+  final 
+    List
+      <Genre> 
+         genres;
+
+
+  final 
+    int
+      id;
+
+
+  final 
+    String 
+      originalName;
+
+      
+  final
+     String 
+       overview;
+
+
+  final 
+    String 
+       posterPath;
+
+
+  final
+    String 
+      firstAirDate;
+
+
+  final 
+    String 
+       name;
+
+
+  final 
+    double 
+       voteAverage;
+
+
+  final 
+    int 
+       voteCount;
+
 
   @override
-  List<Object?> 
-  get props => 
+
+  List
+    <Object?> 
+        get 
+          props => 
   [
-    backdropPath,
+
+  backdropPath,
     genres,
-    id,
 
+
+  id,
     originalName,
-    overview,
+      overview,
 
-    posterPath,
+  posterPath,
     firstAirDate,
 
-    name,
-    voteAverage,
 
-    voteCount,
+  name,
+    voteAverage,
+      voteCount,
+
   ];
+  
 }

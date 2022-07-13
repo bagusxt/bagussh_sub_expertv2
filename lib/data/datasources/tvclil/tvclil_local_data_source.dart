@@ -3,50 +3,77 @@ import 'package:sub_bagussh/common/exception.dart';
 
 import 'package:sub_bagussh/data/models/tvclil/tvclil_table.dart';
 
-abstract class TvclilLocalDataSource 
+abstract class 
+  TvclilLocalDataSource 
+
 {
-  Future<String>
-  insertWatchlistTv
-  (TvclilTable tv);
+  Future
+    <String>
 
-  Future<String> 
-  removeWatchlistTv
-  (TvclilTable tv);
+      insertWatchlistTv
+        (TvclilTable tv);
 
-  Future<TvclilTable?>
-  getTvById(int id);
+  Future
+    <String> 
+      removeWatchlistTv
+        (TvclilTable tv);
 
-  Future<List<TvclilTable>> 
-  getWatchlistTv();
+  Future
+    <TvclilTable?>
+
+      getTvById
+        (int id);
+
+  Future
+    <List
+
+      <TvclilTable>> 
+        getWatchlistTv();
 }
 
-class TvclilLocalDataSourceImpl implements TvclilLocalDataSource 
-{
-  final DatabaseHelperTvclil databaseHelpertvclil;
-
+class 
   TvclilLocalDataSourceImpl
-  ({required this.databaseHelpertvclil});
+implements 
+  TvclilLocalDataSource 
+{
+final
+    DatabaseHelperTvclil
+      databaseHelpertvclil;
 
-  @override
+   TvclilLocalDataSourceImpl
+     ({required this.databaseHelpertvclil});
+
+@override
   Future<String>
-  insertWatchlistTv(TvclilTable tv) async 
-  {
+    insertWatchlistTv
+      (TvclilTable tv) 
+      
+    async{
     try 
     {
-      await databaseHelpertvclil.insertWatchlistTv(tv);
-      return 'Added to Watchlist';
+      await 
+        databaseHelpertvclil.
+          insertWatchlistTv(tv);
+    return 
+        'Added to Watchlist';
     } 
-      catch (e) 
+    catch 
+        (e) 
     {
-      throw DatabaseException(e.toString());
+    throw 
+        DatabaseException
+          (e.toString());
     }
   }
 
-  @override
-  Future<String> 
-  removeWatchlistTv(TvclilTable tv) async
-   {
-    try 
+@override
+  Future
+    <String> 
+      removeWatchlistTv
+        (TvclilTable tv) 
+
+   async{
+   try 
     {
       await databaseHelpertvclil.removeWatchlistTv(tv);
       return 'Removed from Watchlist';
@@ -58,28 +85,47 @@ class TvclilLocalDataSourceImpl implements TvclilLocalDataSource
   }
 
   @override
-  Future<TvclilTable?>
-  getTvById(int id) async
-  {
-    final result = await databaseHelpertvclil.getTvById(id);
+    Future
+      <TvclilTable?>
+        getTvById
+          (int id) 
+
+    async{
+      final result = 
+          await databaseHelpertvclil.getTvById(id);
+
     if 
-    (result != null) 
+    (
+      result 
+       != null) 
     {
-      return TvclilTable.fromMap(result);
+      return 
+       TvclilTable.fromMap
+         (result);
     } 
+
     else 
     {
-      return null;
+      return
+        null;
     }
   }
 
   @override
-  Future<List<TvclilTable>>
-  getWatchlistTv() async 
-  {
-    final result = 
-    await databaseHelpertvclil.getWatchlistTv();
-    return result.map((data) =>
-    TvclilTable.fromMap(data)).toList();
+  Future
+    <List
+      <TvclilTable>>
+        getWatchlistTv()
+
+    async{
+      final 
+        result = 
+           await databaseHelpertvclil.getWatchlistTv();
+
+    return 
+      result.map((data) =>
+         TvclilTable.fromMap
+            (data)).toList();
+            
   }
 }

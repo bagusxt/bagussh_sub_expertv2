@@ -4,17 +4,36 @@ import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
 
 import 'package:dartz/dartz.dart';
 
-class SearchTvclil {
-  final 
+class
+   SearchTvclil {
+
+final 
   TvclilRepository 
-  repository;
+     repository;
 
-  SearchTvclil
-  (this.repository);
+SearchTvclil
+( 
+  this
+    .repository
+);
 
-  Future<Either<Failure, 
-  List<Tvclil>>> 
-  execute(String query) {
-  return repository.searchTv(query);
+Future
+  <Either
+    <Failure, 
+
+List
+  <Tvclil>>> 
+
+ execute
+  (
+    String query
+  ) 
+{
+  return
+     repository.searchTv
+    (
+      query
+    );
+    
   }
 }
