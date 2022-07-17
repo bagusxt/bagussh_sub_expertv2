@@ -1,35 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:sub_bagussh/common/utils.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
-import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WatchlistMoviesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-movie';
+import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
+
+class 
+WatchlistMoviesPage
+
+extends StatefulWidget {
+static const 
+ROUTE_NAME = '/watchlist-movie';
 
   @override
-  _WatchlistMoviesPageState createState() 
-  => _WatchlistMoviesPageState();
+
+  _WatchlistMoviesPageState createState()  => _WatchlistMoviesPageState();
 }
 
-class _WatchlistMoviesPageState extends State
+class _WatchlistMoviesPageState 
+extends State
+
 <WatchlistMoviesPage>
-    with RouteAware {
+
+ with RouteAware {
   @override
-  void initState() {
+
+  void initState() {super.initState();
     super.initState();
-    super.initState();
-    Future.microtask(() {
-        context.read<MovieWatchlistBloc>().add(WatchListEvent());
-      });
-  }
+
+    Future.microtask(() {  context.read<MovieWatchlistBloc>().add(WatchListEvent());
+    }
+  );
+}
 
   @override
-  void didChangeDependencies() 
+  void 
+    didChangeDependencies() 
   {
-    super.didChangeDependencies();
-    routeObserver.subscribe
-    (this, ModalRoute.of(context)!);
+    super
+      .didChangeDependencies();
+
+    routeObserver
+      .subscribe
+
+    (this, 
+      ModalRoute
+        .of(context)!);
   }
 
   void didPopNext() {
@@ -43,8 +59,7 @@ class _WatchlistMoviesPageState extends State
   {
     return Scaffold(
       appBar: AppBar(
-        title: Text
-        ('Watchlist'),
+        title: Text ('Movies Watchlist'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -63,9 +78,7 @@ class _WatchlistMoviesPageState extends State
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text("Error"),
+              return Center(  key: Key('error_message'),  child: Text("No Watchlist Added"),
               );
             }
           },
@@ -74,9 +87,16 @@ class _WatchlistMoviesPageState extends State
     );
   }
 
+
   @override
-  void dispose() {
-    routeObserver.unsubscribe(this);
-    super.dispose();
+  void 
+     dispose() {
+
+  routeObserver
+    .unsubscribe(this);
+
+   super
+    .dispose();
   }
+  
 }

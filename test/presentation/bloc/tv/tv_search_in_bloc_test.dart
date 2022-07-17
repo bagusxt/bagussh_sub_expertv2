@@ -2,28 +2,43 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/search_tvclil.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
+
 import 'package:mockito/mockito.dart';
 
-import 'tv_search_in_bloc_test.mocks.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-@GenerateMocks([TvSearchBloc,SearchTvclil])
 void main() {
-  late MockSearchTvclil mockSearchTv;
-  late TvSearchBloc tvSearchBloc;
+  late 
+     MockSearchTvclil 
+     mockSearchTv;
+
+  late 
+     TvSearchBloc
+     tvSearchBloc;
 
   setUp(() {
-    mockSearchTv = MockSearchTvclil();
-    tvSearchBloc = TvSearchBloc(
-      searchTv: mockSearchTv,
-    );
-  });
+    mockSearchTv 
 
-  const query = "originalTitle";
-  final tvList = <Tvclil>[];
+      = MockSearchTvclil();
+
+    tvSearchBloc 
+
+      = TvSearchBloc(
+
+      searchTv
+        : mockSearchTv,
+      );
+    }
+ );
+
+  const 
+    query = "originalTitle";
+    
+  final
+     tvList 
+      = <Tvclil>[];
 
   test("initial state should be empty", () {
     expect(tvSearchBloc.state, TvSearchEmpty());

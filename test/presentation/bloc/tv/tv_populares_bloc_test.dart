@@ -2,29 +2,34 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_popluar_tvclil.dart';
 
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
-import 'package:mockito/annotations.dart';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-
-import 'tv_populares_bloc_test.mocks.dart';
-
-@GenerateMocks([GetPopularTvclil, TvPopularBloc])
 void main() {
-  late MockGetPopularTvclil mockGetPopularTv;
-  late TvPopularBloc tvPopularBloc;
+  late
+    MockGetPopularTvclil 
+      mockGetPopularTv;
+
+      late 
+        TvPopularBloc
+            tvPopularBloc;
 
   setUp(() {
-    mockGetPopularTv = MockGetPopularTvclil();
-    tvPopularBloc = TvPopularBloc(mockGetPopularTv);
-  });
+    mockGetPopularTv 
+      = MockGetPopularTvclil();
+
+        tvPopularBloc
+           = TvPopularBloc(mockGetPopularTv);
+    }
+  );
 
   // ignore: non_constant_identifier_names
-  final TvList = <Tvclil>[];
+  final 
+    TvList 
+      = <Tvclil>[];
 
   test("initial state should be empty", () {
     expect(tvPopularBloc.state, TvPopularEmpty());

@@ -1,83 +1,72 @@
-part of 'movie_bloc.dart';
+part of 
+'movie_bloc.dart';
 
-abstract class MovieDetailEvent extends Equatable {
-  const MovieDetailEvent();
-
+class GetMovieDetailEvent extends MovieDetailEvent {final int id; List<Object> get props => [id];
   @override
-  List<Object> get props => [];
+  GetMovieDetailEvent(this.id);} abstract class MovieDetailEvent extends Equatable {
 }
 
-class GetMovieDetailEvent extends MovieDetailEvent {
-  final int id;
 
-  const GetMovieDetailEvent(this.id);
+abstract class MovieSearchEvent extends Equatable {const MovieSearchEvent();
 
-  @override
-  List<Object> get props => [];
+  @override List<Object> get props => [];}
+    class MovieSearchSetEmpty extends MovieSearchEvent {
 }
 
-//search
-abstract class MovieSearchEvent extends Equatable {
-  const MovieSearchEvent();
+  class MovieSearchQueryEvent extends MovieSearchEvent {final String query;
+    const MovieSearchQueryEvent(this.query);
 
   @override
-  List<Object> get props => [];
+     List<Object> 
+      get props => [query];
 }
 
-class MovieSearchSetEmpty extends MovieSearchEvent {}
 
-class MovieSearchQueryEvent extends MovieSearchEvent {
-  final String query;
-
-  const MovieSearchQueryEvent(this.query);
-
-  @override
-  List<Object> get props => [];
+class MovieTopRatedGetEvent extends MovieTopRatedEvent {
+  @override List<Object> get props => [];
 }
 
-//toprrated
-abstract class MovieTopRatedEvent extends Equatable {
-  const MovieTopRatedEvent();
+abstract class MovieTopRatedEvent extends Equatable { List<Object> get props => [];
+  @override const MovieTopRatedEvent();
+}  
 
-  @override
-  List<Object> get props => [];
+
+class MoviePopularGetEvent extends MoviePopularEvent {
+    @override List<Object> get props => [];
 }
 
-class MovieTopRatedGetEvent extends MovieTopRatedEvent {}
-
-//populares
-abstract class MoviePopularEvent extends Equatable {
-  const MoviePopularEvent();
-
-  @override
-  List<Object> get props => [];
+abstract class 
+  MoviePopularEvent 
+    extends Equatable {
 }
-
-class MoviePopularGetEvent extends MoviePopularEvent {}
-
-//top_rated
-abstract class MovieRecommendationEvent extends Equatable {
-  const MovieRecommendationEvent();
-
-  @override
-  List<Object> get props => [];
-}
+  
 
 class GetMovieRecommendationEvent extends MovieRecommendationEvent {
-  final int id;
+  @override List<Object> get props => [
+];
 
-  const GetMovieRecommendationEvent(this.id);
-
-  @override
-  List<Object> get props => [];
+  GetMovieRecommendationEvent(this.id);
+    final int id;
 }
 
-//now_play
-abstract class MovieNowPlayingEvent extends Equatable {
-  const MovieNowPlayingEvent();
-
-  @override
-  List<Object> get props => [];
+abstract class 
+  MovieRecommendationEvent 
+    extends Equatable {
 }
 
-class MovieNowPlayingGetEvent extends MovieNowPlayingEvent {}
+
+class 
+  MovieNowPlayingGetEvent 
+    extends 
+      MovieNowPlayingEvent 
+{
+
+  @override List<Object> 
+    get props => [];
+  
+}
+
+abstract class 
+  MovieNowPlayingEvent 
+    extends Equatable {
+}

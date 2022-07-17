@@ -2,40 +2,63 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 
-import 'package:sub_bagussh/domain/usecases/movies/get_watchlist_movies.dart';
-import 'package:sub_bagussh/domain/usecases/movies/get_watchlist_status.dart';
-import 'package:sub_bagussh/domain/usecases/movies/remove_watchlist.dart';
-import 'package:sub_bagussh/domain/usecases/movies/save_watchlist.dart';
-
 import 'package:sub_bagussh/presentation/bloc/movie/movie_watchlist/movie_watchlist_bloc.dart';
-
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../dummy_data/dummy_objects.dart';
-import 'movie_watchlist_bloc_test.mocks.dart';
+import '../../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-@GenerateMocks([MovieWatchlistBloc,GetWatchlistMovies,GetWatchListStatus,RemoveWatchlist,SaveWatchlist])
-void main() {
-  late MockGetWatchlistMovies mockGetWatchlistMovies;
-  late MockGetWatchListStatus mockGetWatchListStatus;
-  late MockSaveWatchlist mockSaveWatchlist;
-  late MockRemoveWatchlist mockRemoveWatchlist;
-  late MovieWatchlistBloc movieWatchlistBloc;
+void
+   main() {
+
+  late 
+   MockGetWatchlistMovies
+    mockGetWatchlistMovies;
+
+  late 
+    MockGetWatchListStatus 
+      mockGetWatchListStatus;
+
+  late 
+    MockSaveWatchlist 
+      mockSaveWatchlist;
+
+  late 
+    MockRemoveWatchlist 
+      mockRemoveWatchlist;
+
+  late 
+    MovieWatchlistBloc
+       movieWatchlistBloc;
 
   setUp(() {
-    mockGetWatchlistMovies = MockGetWatchlistMovies();
-    mockGetWatchListStatus = MockGetWatchListStatus();
-    mockSaveWatchlist = MockSaveWatchlist();
-    mockRemoveWatchlist = MockRemoveWatchlist();
-    movieWatchlistBloc = MovieWatchlistBloc(
-      getWatchlistMovies: mockGetWatchlistMovies,
-      getWatchListStatus: mockGetWatchListStatus,
-      saveWatchlist: mockSaveWatchlist,
-      removeWatchlist: mockRemoveWatchlist,
+    mockGetWatchlistMovies 
+       = MockGetWatchlistMovies();
+
+    mockGetWatchListStatus
+       = MockGetWatchListStatus();
+
+    mockSaveWatchlist
+       = MockSaveWatchlist();
+
+    mockRemoveWatchlist
+       = MockRemoveWatchlist();
+       
+    movieWatchlistBloc
+       = MovieWatchlistBloc(
+
+      getWatchlistMovies: 
+        mockGetWatchlistMovies,
+      getWatchListStatus: 
+        mockGetWatchListStatus,
+      saveWatchlist: 
+        mockSaveWatchlist,
+      removeWatchlist:
+         mockRemoveWatchlist,
     );
-  });
+  }
+  );
 
   const movieId = 1;
 

@@ -10,30 +10,44 @@ import 'package:mockito/mockito.dart';
 
 import 'dart:io';
 import 'package:dartz/dartz.dart';
-import '../../dummy_data/dummy_objects_tvclil.dart';
-import '../../helpers/test_helper_tvclil.mocks.dart';
+
+import '../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late TvclilRepositoryImpl 
-  repository;
-  late MockTvclilRemoteDataSource 
-  mockRemoteDataSource;
-  late MockTvclilLocalDataSource 
-  mockLocalDataSource;
+  late 
+    TvclilRepositoryImpl 
+      repository;
+
+  late 
+    MockTvclilRemoteDataSource 
+      mockRemoteDataSource;
+
+  late 
+    MockTvclilLocalDataSource 
+      mockLocalDataSource;
 
   setUp(() {
     mockRemoteDataSource =
-    MockTvclilRemoteDataSource();
+     MockTvclilRemoteDataSource();
+
     mockLocalDataSource = 
-    MockTvclilLocalDataSource();
+      MockTvclilLocalDataSource();
+
     repository = 
-    TvclilRepositoryImpl(
-      remoteDataSource: mockRemoteDataSource,
-      localDataSource: mockLocalDataSource,
+      TvclilRepositoryImpl(
+
+      remoteDataSource:
+         mockRemoteDataSource,
+      localDataSource: 
+        mockLocalDataSource,
     );
-  });
+  }
+  );
 
-  final tTvModel = TvclilModel(
+  final tTvModel
+     = TvclilModel(
     backdropPath: '/mUkuc2wyV9dHLG0D0Loaw5pO2s8.jpg',
     genreIds: [10765, 10759, 18],
     id: 1399,
@@ -48,7 +62,8 @@ void main() {
     voteCount: 1172,
   );
 
-  final tTv = Tvclil(
+  final tTv
+     = Tvclil(
     backdropPath: '/mUkuc2wyV9dHLG0D0Loaw5pO2s8.jpg',
     genreIds: [10765, 10759, 18],
     id: 1399,
@@ -63,8 +78,13 @@ void main() {
     voteCount: 1172,
   );
 
-  final tTvModelList = <TvclilModel>[tTvModel];
-  final tTvList = <Tvclil>[tTv];
+  final 
+    tTvModelList 
+      = <TvclilModel>[tTvModel];
+
+  final 
+    tTvList 
+    = <Tvclil>[tTv];
 
   group('Now Playing Tv', () {
     test(

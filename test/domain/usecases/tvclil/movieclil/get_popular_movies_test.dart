@@ -4,23 +4,32 @@ import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'package:sub_bagussh/domain/usecases/movies/get_popular_movies.dart';
-import '../../helpers/test_helper.mocks.dart';
+
+import '../../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetPopularMovies 
-  usecase;
-  late MockMovieRepository 
-  mockMovieRpository;
+  late
+     GetPopularMovies 
+      usecase;
+
+  late 
+    MockMovieRepository 
+       mockMovieRpository;
 
   setUp(() {
     mockMovieRpository = 
-    MockMovieRepository();
+       MockMovieRepository();
+       
     usecase = 
-    GetPopularMovies
+      GetPopularMovies
     (mockMovieRpository);
-  });
+  }
+  );
 
-  final tMovies = <Movie>[];
+  final
+    tMovies =
+       <Movie>[];
 
   group('GetPopularMovies Tests', () {
     group('execute', () {

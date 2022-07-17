@@ -5,7 +5,7 @@ import 'package:sub_bagussh/domain/repositories/tvclil_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class 
-  GetNowPlayingTvclil 
+ GetNowPlayingTvclil 
   {
 
   final 

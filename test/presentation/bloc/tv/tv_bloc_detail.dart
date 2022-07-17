@@ -1,27 +1,34 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-
 import 'package:sub_bagussh/common/failure.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_tvclil_detail.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 
-import 'package:mockito/annotations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../dummy_data/dummy_objects_tvclil.dart';
-import 'tv_bloc_detail.mocks.dart';
 
-@GenerateMocks([GetTvclilDetail, TvDetailBloc])
+import '../../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
+
 void main() {
-  late MockGetTvclilDetail mockGetTvDetail;
-  late TvDetailBloc tvDetailBloc;
+  late 
+    MockGetTvclilDetail
+       mockGetTvDetail;
+  late 
+    TvDetailBloc 
+      tvDetailBloc;
   setUp(() {
-    mockGetTvDetail = MockGetTvclilDetail();
-    tvDetailBloc = TvDetailBloc(getTvDetail: mockGetTvDetail);
-  });
+    mockGetTvDetail 
+      = MockGetTvclilDetail();
+    tvDetailBloc 
+      = TvDetailBloc
+        (getTvDetail: 
+          mockGetTvDetail);
+    }
+  );
 
-  const tvId = 1;
+  const 
+    tvId = 1;
 
   test("initial state should be empty", () {
     expect(tvDetailBloc.state, TvDetailEmpty());
@@ -35,7 +42,7 @@ void main() {
             .thenAnswer((_) async => Right(testTvDetail));
         return tvDetailBloc;
       },
-      act: (bloc) => bloc.add(const GetTvDetailEvent(tvId)),
+      act: (bloc) => bloc.add(GetTvDetailEvent(tvId)),
       expect: () => [TvDetailLoading(), TvDetailLoaded(testTvDetail)],
       verify: (bloc) {
         verify(mockGetTvDetail.execute(tvId));
@@ -49,8 +56,8 @@ void main() {
             .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
         return tvDetailBloc;
       },
-      act: (bloc) => bloc.add(const GetTvDetailEvent(tvId)),
-      expect: () => [TvDetailLoading(), const TvDetailError('Server Failure')],
+      act: (bloc) => bloc.add(GetTvDetailEvent(tvId)),
+      expect: () => [TvDetailLoading(), TvDetailError('Server Failure')],
       verify: (bloc) {
         verify(mockGetTvDetail.execute(tvId));
       },

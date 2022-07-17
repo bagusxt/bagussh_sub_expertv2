@@ -7,24 +7,32 @@ import 'package:sub_bagussh/data/datasources/movie/movie_remote_data_source.dart
 import 'package:sub_bagussh/data/models/movies/movie_detail_model.dart';
 import 'package:sub_bagussh/data/models/movies/movie_response.dart';
 
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
 import '../../json_reader.dart';
-import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
-  const BASE_URL = 'https://api.themoviedb.org/3';
+  const 
+    API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
+    
+  const
+    BASE_URL = 'https://api.themoviedb.org/3';
 
-  late MovieRemoteDataSourceImpl 
-  dataSource;
-  late MockHttpClient 
-  mockHttpClient;
+  late 
+    MovieRemoteDataSourceImpl 
+      dataSource;
+  late 
+    MockHttpClient 
+      mockHttpClient;
 
   setUp(() {
     mockHttpClient = 
-    MockHttpClient();
+     MockHttpClient();
+
     dataSource = 
-    MovieRemoteDataSourceImpl(client: mockHttpClient);
-  });
+      MovieRemoteDataSourceImpl
+        (client: mockHttpClient);
+  }
+);
 
   group('get Now Playing Movies', () {
     final tMovieList = MovieResponse.fromJson(

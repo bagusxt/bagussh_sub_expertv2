@@ -2,28 +2,36 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:sub_bagussh/common/failure.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_top_rated_tvclil.dart';
+
 
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
-
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:mockito/annotations.dart';
-import 'tv_top_rate_bloc_test.mocks.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-@GenerateMocks([GetTopRatedTvclil, TvTopRatedBloc])
 void main() {
-  late MockGetTopRatedTvclil mockGetTopRatedTv;
-  late TvTopRatedBloc tvTopRatedBloc;
+  late 
+    MockGetTopRatedTvclil
+    mockGetTopRatedTv;
+
+  late 
+    TvTopRatedBloc 
+    tvTopRatedBloc;
 
   setUp(() {
-    mockGetTopRatedTv = MockGetTopRatedTvclil();
-    tvTopRatedBloc = TvTopRatedBloc(mockGetTopRatedTv);
-  });
+    mockGetTopRatedTv 
+      = MockGetTopRatedTvclil();
 
-  final tvList = <Tvclil>[];
+    tvTopRatedBloc 
+      = TvTopRatedBloc(mockGetTopRatedTv);
+  }
+  );
+
+  final 
+    tvList 
+    = <Tvclil>[];
 
   test("initial state should be empty", () {
       expect(tvTopRatedBloc.state, TvTopRatedEmpty());

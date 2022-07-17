@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
-import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 import 'package:sub_bagussh/common/constants.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 
+import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 
-class SearchTvclilPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search-tv';
+class 
+SearchTvclilPage
+
+extends 
+StatelessWidget {
+  
+static const 
+ROUTE_NAME = '/search-tv';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Search'),
+      appBar: AppBar(title: Text('Search'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Padding(  padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               onSubmitted: (query) {
-                context
-                      .read<TvSearchBloc>()
-                      .add(TvSearchQueryEvent(query));
+                context.read<TvSearchBloc>() .add(TvSearchQueryEvent(query));
               },
               decoration: InputDecoration(
                 hintText: 

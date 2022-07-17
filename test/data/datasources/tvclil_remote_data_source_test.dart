@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
@@ -6,24 +7,35 @@ import 'package:sub_bagussh/data/datasources/tvclil/tvclil_remote_data_source.da
 import 'package:sub_bagussh/data/models/tvclil/tvclil_detail_model.dart';
 import 'package:sub_bagussh/data/models/tvclil/tvclil_response.dart';
 import 'package:sub_bagussh/common/exception.dart';
+
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
 import '../../json_reader.dart';
-import '../../helpers/test_helper_tvclil.mocks.dart';
 
 void main() {
-  const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
-  const BASE_URL = 'https://api.themoviedb.org/3';
 
-  late TvclilRemoteDataSourceImpl 
-  dataSourcetv;
-  late MockHttpClient 
-  mockHttpClient;
+  const 
+    API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
+  const 
+    BASE_URL = 'https://api.themoviedb.org/3';
+
+  late
+     TvclilRemoteDataSourceImpl 
+        dataSourcetv;
+
+  late 
+    MockHttpClient 
+         mockHttpClient;
 
   setUp(() {
     mockHttpClient = 
-    MockHttpClient();
+      MockHttpClient();
+
     dataSourcetv = 
-    TvclilRemoteDataSourceImpl(client: mockHttpClient);
-  });
+     TvclilRemoteDataSourceImpl
+      (client:
+         mockHttpClient);
+  }
+);
 
   group('get Now Playing Tv', () {
     final tTvList = TvclilResponse.fromJson(

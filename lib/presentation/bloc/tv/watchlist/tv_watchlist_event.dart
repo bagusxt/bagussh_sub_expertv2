@@ -1,37 +1,30 @@
-part of 'tv_watchlist_bloc.dart';
+part of 
+'tv_watchlist_bloc.dart';
+
+class RemoveItemTvEvent extends TvWatchlistEvent { final TvclilDetail tvDetail;
+
+  const RemoveItemTvEvent(this.tvDetail); @override List<Object> get props => [tvDetail];
+
+}
+
+class AddItemTvEvent extends TvWatchlistEvent { final TvclilDetail tvDetail;
+
+ @override  List<Object> get props => [tvDetail]; const AddItemTvEvent(this.tvDetail); 
+
+}
 
 abstract class TvWatchlistEvent extends Equatable {
-  const TvWatchlistEvent();
 
-  @override
-  List<Object> get props => [];
+   @override List<Object> get props => []; const TvWatchlistEvent();
+
 }
 
-class GetListEvent extends TvWatchlistEvent {}
 
-class GetStatusTvEvent extends TvWatchlistEvent {
-  final int id;
-
-  const GetStatusTvEvent(this.id);
-
-  @override
-  List<Object> get props => [id];
+class GetListEvent extends TvWatchlistEvent { @override List<Object> get props => [];
 }
 
-class AddItemTvEvent extends TvWatchlistEvent {
-  final TvclilDetail tvDetail;
+class GetStatusTvEvent extends TvWatchlistEvent {final int id;
 
-  const AddItemTvEvent(this.tvDetail);
+  const GetStatusTvEvent(this.id); @override List<Object> get props => [id];
 
-  @override
-  List<Object> get props => [tvDetail];
-}
-
-class RemoveItemTvEvent extends TvWatchlistEvent {
-  final TvclilDetail tvDetail;
-
-  const RemoveItemTvEvent(this.tvDetail);
-
-  @override
-  List<Object> get props => [tvDetail];
 }

@@ -4,23 +4,31 @@ import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
 import 'package:sub_bagussh/domain/usecases/tvclil/get_popluar_tvclil.dart';
 
 import 'package:dartz/dartz.dart';
-import '../../../helpers/test_helper_tvclil.mocks.dart';
+
+import '../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetPopularTvclil 
-  usecase;
-  late MockTvclilRepository 
-  mockTvRpository;
+  late 
+    GetPopularTvclil 
+     usecase;
+  late 
+    MockTvclilRepository 
+     mockTvRpository;
 
   setUp(() {
     mockTvRpository = 
-    MockTvclilRepository();
-    usecase = 
-    GetPopularTvclil(mockTvRpository);
-  });
+       MockTvclilRepository();
 
-  final tTv = 
-  <Tvclil>[];
+    usecase = 
+       GetPopularTvclil
+        (mockTvRpository);
+    }
+);
+
+  final
+    tTv = 
+      <Tvclil>[];
 
   group('Get Popular Tv Tests', () {
     group('execute', () {
@@ -31,10 +39,15 @@ void main() {
             when(mockTvRpository.getPopularTv())
                 .thenAnswer((_) async => Right(tTv));
             // act
-            final result = await usecase.execute();
+            final result 
+              = await usecase.execute();
             // assert
-            expect(result, Right(tTv));
-          });
-    });
-  });
+            expect
+              (result, Right(tTv));
+            }
+          );
+       }
+     );
+   }
+ );
 }

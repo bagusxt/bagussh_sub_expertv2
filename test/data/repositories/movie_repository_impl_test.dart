@@ -10,32 +10,43 @@ import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'dart:io';
-import '../../dummy_data/dummy_objects.dart';
-import '../../helpers/test_helper.mocks.dart';
+
+
+import '../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
 
 void main() {
   late MovieRepositoryImpl 
-  repository;
+    repository;
+
   late MockMovieRemoteDataSource 
-  mockRemoteDataSource;
+    mockRemoteDataSource;
+
   late MockMovieLocalDataSource 
-  mockLocalDataSource;
+    mockLocalDataSource;
 
   setUp(() {
     mockRemoteDataSource = 
-    MockMovieRemoteDataSource();
+       MockMovieRemoteDataSource();
+
     mockLocalDataSource = 
-    MockMovieLocalDataSource();
+        MockMovieLocalDataSource();
+
     repository = 
-    MovieRepositoryImpl(
-      remoteDataSource: 
-      mockRemoteDataSource,
-      localDataSource: 
-      mockLocalDataSource,
-    );
-  });
+       MovieRepositoryImpl(
 
-  final tMovieModel = MovieModel(
+    remoteDataSource: 
+       mockRemoteDataSource,
+    localDataSource: 
+        mockLocalDataSource,
+      );
+    }
+  );
+
+
+  final 
+    tMovieModel 
+    = MovieModel(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
@@ -52,7 +63,9 @@ void main() {
     voteCount: 13507,
   );
 
-  final tMovie = Movie(
+  final 
+  tMovie 
+    = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
@@ -69,8 +82,13 @@ void main() {
     voteCount: 13507,
   );
 
-  final tMovieModelList = <MovieModel>[tMovieModel];
-  final tMovieList = <Movie>[tMovie];
+  final tMovieModelList
+     = <MovieModel>
+      [tMovieModel];
+
+  final 
+    tMovieList
+       = <Movie>[tMovie];
 
   group('Now Playing Movies', () {
     test(

@@ -2,27 +2,34 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_now_playing_tvclil.dart';
-
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-import 'tv_airing_bloc_test.mocks.dart';
-
-@GenerateMocks([TvOnAirBloc,GetNowPlayingTvclil])
 void main() {
-  late MockGetNowPlayingTvclil mockGetNowPlayingTv;
-  late TvOnAirBloc tvOnAirBloc;
+  late 
+    MockGetNowPlayingTvclil 
+      mockGetNowPlayingTv;
+
+  late 
+    TvOnAirBloc 
+      tvOnAirBloc;
 
   setUp(() {
-    mockGetNowPlayingTv = MockGetNowPlayingTvclil();
-    tvOnAirBloc = TvOnAirBloc(mockGetNowPlayingTv);
-  });
 
-  final tvList = <Tvclil>[];
+    mockGetNowPlayingTv
+       = MockGetNowPlayingTvclil();
+
+    tvOnAirBloc 
+      = TvOnAirBloc(mockGetNowPlayingTv);
+  }
+);
+
+  final 
+    tvList
+       = <Tvclil>[];
 
   test("initial state should be empty", () {
     expect(tvOnAirBloc.state, TvOnAirEmpty());

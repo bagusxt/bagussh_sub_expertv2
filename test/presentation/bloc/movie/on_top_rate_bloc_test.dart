@@ -2,25 +2,32 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
-import 'package:sub_bagussh/domain/usecases/movies/get_top_rated_movies.dart';
+
 import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-import 'on_top_rate_bloc_test.mocks.dart';
-
-@GenerateMocks([GetTopRatedMovies, MovieTopRatedBloc])
 void main() {
-  late MockGetTopRatedMovies mockGetTopRatedMovies;
-  late MovieTopRatedBloc movieTopRatedBloc;
+  late 
+    MockGetTopRatedMovies 
+      mockGetTopRatedMovies;
+
+  late 
+    MovieTopRatedBloc 
+      movieTopRatedBloc;
 
   setUp(() {
-    mockGetTopRatedMovies = MockGetTopRatedMovies();
-    movieTopRatedBloc = MovieTopRatedBloc(mockGetTopRatedMovies);
+    mockGetTopRatedMovies
+       = MockGetTopRatedMovies();
+
+    movieTopRatedBloc 
+      = MovieTopRatedBloc(mockGetTopRatedMovies);
   });
 
-  final movieList = <Movie>[];
+  final
+    movieList 
+       = <Movie>[];
 
   test("initial state should be empty", () {
     expect(movieTopRatedBloc.state, MovieTopRatedEmpty());

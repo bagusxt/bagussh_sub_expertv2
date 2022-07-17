@@ -4,30 +4,41 @@ import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'package:sub_bagussh/domain/usecases/movies/get_top_rated_movies.dart';
-import '../../helpers/test_helper.mocks.dart';
+
+import '../../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetTopRatedMovies 
-  usecase;
-  late MockMovieRepository 
-  mockMovieRepository;
+  late
+     GetTopRatedMovies 
+       usecase;
+  late 
+    MockMovieRepository 
+       mockMovieRepository;
 
   setUp(() {
     mockMovieRepository = 
-    MockMovieRepository();
+       MockMovieRepository();
     usecase = 
-    GetTopRatedMovies(mockMovieRepository);
-  });
+       GetTopRatedMovies
+        (mockMovieRepository);
+  }
+  );
 
-  final tMovies = <Movie>[];
+  final 
+    tMovies =
+       <Movie>[];
 
   test('should get list of movies from repository', () async {
     // arrange
     when(mockMovieRepository.getTopRatedMovies())
         .thenAnswer((_) async => Right(tMovies));
     // act
-    final result = await usecase.execute();
+    final result 
+      = await usecase.execute();
     // assert
-    expect(result, Right(tMovies));
-  });
+    expect
+      (result, Right(tMovies));
+    }
+  );
 }

@@ -3,21 +3,27 @@ import 'package:mockito/mockito.dart';
 
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/domain/usecases/movies/get_movie_detail.dart';
-import '../../dummy_data/dummy_objects.dart';
-import '../../helpers/test_helper.mocks.dart';
+
+import '../../../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetMovieDetail 
-  usecase;
-  late MockMovieRepository 
-  mockMovieRepository;
+  late 
+    GetMovieDetail 
+      usecase;
+  late 
+    MockMovieRepository 
+      mockMovieRepository;
 
   setUp(() {
     mockMovieRepository = 
-    MockMovieRepository();
+      MockMovieRepository();
     usecase = 
-    GetMovieDetail(mockMovieRepository);
-  });
+      GetMovieDetail
+        (mockMovieRepository);
+  }
+  );
 
   final tId = 1;
 
@@ -26,8 +32,11 @@ void main() {
     when(mockMovieRepository.getMovieDetail(tId))
         .thenAnswer((_) async => Right(testMovieDetail));
     // act
-    final result = await usecase.execute(tId);
+    final result 
+      = await usecase.execute(tId);
     // assert
-    expect(result, Right(testMovieDetail));
-  });
+    expect
+      (result, Right(testMovieDetail));
+    }
+  );
 }

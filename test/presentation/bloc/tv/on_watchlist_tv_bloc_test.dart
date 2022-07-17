@@ -1,40 +1,76 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_watchlist_status_tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/get_watchlist_tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/remove_watchlist_tvclil.dart';
-import 'package:sub_bagussh/domain/usecases/tvclil/save_watchlist_tvclil.dart';
+
 import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
+
 import 'package:mockito/mockito.dart';
 
-import '../../../dummy_data/dummy_objects_tvclil.dart';
-import 'on_watchlist_tv_bloc_test.mocks.dart';
+import '../../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-@GenerateMocks([TvWatchlistBloc,GetWatchlistTvclil,GetWatchListStatusTvclil,RemoveWatchlistTvclil,SaveWatchlistTvclil])
-void main() {
-  late MockGetWatchlistTvclil mockGetWatchlistTvclil;
-  late MockGetWatchListStatusTvclil mockGetWatchListStatus;
-  late MockSaveWatchlistTvclil mockSaveWatchlist;
-  late MockRemoveWatchlistTvclil mockRemoveWatchlist;
-  late TvWatchlistBloc tvWatchlistBloc;
+void 
+  main() {
+    
+  late 
+    MockGetWatchlistTvclil 
+
+      mockGetWatchlistTvclil;
+
+  late 
+    MockGetWatchListStatusTvclil
+    
+       mockGetWatchListStatus;
+
+  late 
+    MockSaveWatchlistTvclil
+
+       mockSaveWatchlist;
+       
+  late 
+    MockRemoveWatchlistTvclil 
+
+      mockRemoveWatchlist;
+
+  late 
+    TvWatchlistBloc 
+
+      tvWatchlistBloc;
 
   setUp(() {
-    mockGetWatchlistTvclil = MockGetWatchlistTvclil();
-    mockGetWatchListStatus = MockGetWatchListStatusTvclil();
-    mockSaveWatchlist = MockSaveWatchlistTvclil();
-    mockRemoveWatchlist = MockRemoveWatchlistTvclil();
-    tvWatchlistBloc = TvWatchlistBloc(
-      getWatchlistTv: mockGetWatchlistTvclil,
-      getWatchListStatus: mockGetWatchListStatus,
-      saveWatchlist: mockSaveWatchlist,
-      removeWatchlist: mockRemoveWatchlist,
-    );
-  });
+    mockGetWatchlistTvclil 
+      = MockGetWatchlistTvclil();
 
-  const tvId = 1;
+    mockGetWatchListStatus 
+      = MockGetWatchListStatusTvclil();
+
+    mockSaveWatchlist 
+      = MockSaveWatchlistTvclil();
+
+    mockRemoveWatchlist 
+      = MockRemoveWatchlistTvclil();
+
+    tvWatchlistBloc
+       = TvWatchlistBloc(
+
+      getWatchlistTv: 
+        mockGetWatchlistTvclil,
+
+      getWatchListStatus: 
+        mockGetWatchListStatus,
+
+      saveWatchlist: 
+        mockSaveWatchlist,
+
+      removeWatchlist: 
+        mockRemoveWatchlist,
+      );
+    }
+  );
+
+  const 
+    tvId = 1;
 
   test("initial state should be empty", () {
     expect(tvWatchlistBloc.state, TvWatchlistEmpty());

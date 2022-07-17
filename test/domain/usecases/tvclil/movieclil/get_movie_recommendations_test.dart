@@ -4,19 +4,26 @@ import 'package:mockito/mockito.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
 import 'package:sub_bagussh/domain/usecases/movies/get_movie_recommendations.dart';
-import '../../helpers/test_helper.mocks.dart';
+
+import '../../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetMovieRecommendations 
-  usecase;
-  late MockMovieRepository 
-  mockMovieRepository;
+  late
+     GetMovieRecommendations 
+      usecase;
+
+  late 
+    MockMovieRepository 
+      mockMovieRepository;
 
   setUp(() {
     mockMovieRepository = 
-    MockMovieRepository();
+      MockMovieRepository();
+      
     usecase = 
-    GetMovieRecommendations(mockMovieRepository);
+      GetMovieRecommendations
+        (mockMovieRepository);
   });
 
   final tId = 1;

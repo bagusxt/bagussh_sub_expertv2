@@ -1,96 +1,249 @@
-part of 'tv_bloc.dart';
+part of 
+'tv_bloc.dart';
 
-//tv_detail
-abstract class TvDetailState extends Equatable {
-  const TvDetailState();
+//tv_dtl
 
-  @override
-  List<Object> get props => [];
-}
+class 
+TvDetailError 
 
-class TvDetailEmpty extends TvDetailState {}
+extends 
+TvDetailState {
 
-class TvDetailLoading extends TvDetailState {}
+  final 
+  String 
 
-class TvDetailError extends TvDetailState {
-  final String message;
-
-  const TvDetailError(this.message);
-
-  @override
-  List<Object> get props => [message];
-}
-
-class TvDetailLoaded extends TvDetailState {
-  final TvclilDetail tvDetail;
-
-  const TvDetailLoaded(this.tvDetail);
+  message;
+    TvDetailError(
+       this.message);
 
   @override
-  List<Object> get props => [tvDetail];
+      List<Object> 
+            get props 
+              => [message];
 }
 
-//search
-abstract class TvSearchState extends Equatable {
-  const TvSearchState();
+abstract class 
+  TvDetailState 
+
+extends
+   Equatable {
+
 
   @override
-  List<Object> get props => [];
+  List
+    <Object> 
+        get props => [
+
+  ];
 }
 
-class TvSearchEmpty extends TvSearchState {}
 
-class TvSearchLoading extends TvSearchState {}
+class 
+TvDetailEmpty 
 
-class TvSearchError extends TvSearchState {
-  final String message;
+extends 
+TvDetailState {
 
-  const TvSearchError(this.message);
+ @override
+  List
+    <Object> 
+      get props => [
+
+   ];
+}
+
+class
+  TvDetailLoading 
+
+extends 
+  TvDetailState {
+
+ @override
+  List
+
+    <Object> 
+      get props => [
+      
+  ];
+}
+
+class 
+  TvDetailLoaded 
+  
+  extends 
+    TvDetailState {
+  
+  final
+     TvclilDetail 
+      tvDetail;
+
+  TvDetailLoaded
+      (this.tvDetail);
 
   @override
-  List<Object> get props => [message];
+
+  List<Object>
+    get props =>
+       [tvDetail];
 }
 
-class TvSearchLoaded extends TvSearchState {
-  final List<Tvclil> result;
 
-  const TvSearchLoaded(this.result);
+//src
+abstract
+   class 
+    TvSearchState 
+      extends 
+
+Equatable {
+
+  const
+     TvSearchState(
+);
+
+  @override 
+    List<Object>
+      get props => [
+  ];
+}
+
+class 
+  TvSearchEmpty 
+
+  extends 
+    TvSearchState {
+
+}
+
+class 
+TvSearchLoading 
+
+extends 
+TvSearchState {
+
+}
+
+class 
+TvSearchError 
+
+extends
+TvSearchState {
+  
+  final 
+
+  String
+  message;
+
+  const 
+    TvSearchError
+      (this.message);
 
   @override
-  List<Object> get props => [result];
+    List<Object> 
+        get props => [message];
 }
 
-//toprate
-abstract class TvTopRatedState extends Equatable {
-  const TvTopRatedState();
+class 
+TvSearchLoaded 
+
+extends 
+TvSearchState {
+
+  final 
+    List
+
+      <Tvclil> 
+        result;
+
+  const 
+    TvSearchLoaded
+      (this.result);
 
   @override
-  List<Object> get props => [];
+    List<Object> 
+      get props 
+          => [result];
 }
 
-class TvTopRatedEmpty extends TvTopRatedState {}
+//top
+abstract 
+  class 
 
-class TvTopRatedLoading extends TvTopRatedState {}
+TvTopRatedState
+   extends
 
-class TvTopRatedError extends TvTopRatedState {
-  final String message;
-
-  const TvTopRatedError(this.message);
+ Equatable 
+ {
+  const
+     TvTopRatedState(
+);
 
   @override
-  List<Object> get props => [message];
+     List
+      <Object> 
+          get props => [
+  ];
 }
 
-class TvTopRatedLoaded extends TvTopRatedState {
-  final List<Tvclil> result;
+class 
+  TvTopRatedEmpty 
+  
+  extends
+     TvTopRatedState {
+ }
 
-  const TvTopRatedLoaded(this.result);
+class 
+  TvTopRatedLoading
+  
+   extends 
+    TvTopRatedState {
+}
+
+class 
+  TvTopRatedError 
+  
+extends 
+  TvTopRatedState {
+
+  final 
+   String
+     message;
+
+  const 
+    TvTopRatedError
+      (this.message);
 
   @override
-  List<Object> get props => [result];
+  List<Object> 
+      get props =>
+  [
+    message
+  ];
 }
 
-//popular
+class 
+TvTopRatedLoaded 
+
+extends 
+TvTopRatedState {
+
+  final 
+    List
+      <Tvclil>
+        result;
+
+  const 
+    TvTopRatedLoaded
+      (this.result);
+
+  @override
+  List
+    <Object>
+       get props => 
+        [result
+  ];
+}
+
+//populuar
 abstract class TvPopularState extends Equatable {
   const TvPopularState();
 
@@ -120,62 +273,103 @@ class TvPopularLoaded extends TvPopularState {
   List<Object> get props => [result];
 }
 
-//recommend
-abstract class TvRecommendationState extends Equatable {
+//recom
+
+abstract class
+
+ TvRecommendationState 
+
+ extends Equatable {
+
   const TvRecommendationState();
 
   @override
-  List<Object> get props => [];
+
+  List<Object> 
+      get props => [];
 }
 
-class TvRecommendationEmpty extends TvRecommendationState {}
+class
+   TvRecommendationEmpty 
 
-class TvRecommendationLoading extends TvRecommendationState {}
 
-class TvRecommendationError extends TvRecommendationState {
-  final String message;
-
-  const TvRecommendationError(this.message);
-
-  @override
-  List<Object> get props => [message];
+   extends 
+    TvRecommendationState {
 }
 
-class TvRecommendationLoaded extends TvRecommendationState {
-  final List<Tvclil> tv;
-
-  const TvRecommendationLoaded(this.tv);
-
-  @override
-  List<Object> get props => [tv];
+class 
+  TvRecommendationLoading 
+  
+  extends 
+    TvRecommendationState {
 }
 
-//nowair
-abstract class TvOnAirState extends Equatable {
-  const TvOnAirState();
+class 
+  TvRecommendationError 
+
+  extends 
+    TvRecommendationState {
+
+  final 
+    String message;
+
+  const 
+    TvRecommendationError
+        (this.message);
 
   @override
-  List<Object> get props => [];
+
+  List<Object>
+     get props => [message
+  ];
 }
 
-class TvOnAirEmpty extends TvOnAirState {}
+class 
+  TvRecommendationLoaded 
 
-class TvOnAirLoading extends TvOnAirState {}
+  extends
+     TvRecommendationState {
+  final List<Tvclil>
+  tv;
 
-class TvOnAirError extends TvOnAirState {
-  final String message;
-
-  const TvOnAirError(this.message);
-
-  @override
-  List<Object> get props => [message];
+  const TvRecommendationLoaded(this.tv);  @override List<Object> get props =>
+  [tv];
 }
 
-class TvOnAirLoaded extends TvOnAirState {
-  final List<Tvclil> result;
+//airing
+abstract class TvOnAirState extends Equatable {const TvOnAirState();
 
-  const TvOnAirLoaded(this.result);
+@override List<Object> get props => [
 
-  @override
-  List<Object> get props => [result];
+  ];
+}
+
+class
+ TvOnAirEmpty 
+
+ extends 
+  TvOnAirState {
+}
+
+class 
+    TvOnAirLoading 
+    
+  extends 
+    TvOnAirState {
+}
+
+class TvOnAirError extends TvOnAirState {final String message;
+
+  const TvOnAirError(this.message); @override  List<Object> get props => [message];
+}
+
+class TvOnAirLoaded extends TvOnAirState { final List<Tvclil> result; const TvOnAirLoaded(this.result);
+
+@override 
+  List<Object>
+
+    get props => 
+      [result
+  ];
+  
 }

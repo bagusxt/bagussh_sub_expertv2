@@ -1,11 +1,17 @@
-import 'package:sub_bagussh/common/constants.dart';
-import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 
-class SearchPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search';
+import 'package:sub_bagussh/common/constants.dart';
+import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
+import 'package:sub_bagussh/presentation/widget/movie_card_list.dart';
+
+class
+SearchPage 
+
+extends 
+StatelessWidget
+
+ {static const ROUTE_NAME = '/search';
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +38,16 @@ class SearchPage extends StatelessWidget {
               textInputAction: TextInputAction.search,
             ),
             SizedBox(height: 16),
-            Text(
-              'Search Result',
-              style: kHeading6,
-            ),
+            Text( 'Search Result', style: kHeading6, ),
             BlocBuilder<MovieSearchBloc, MovieSearchState>(
                 builder: (context, state) {
-                  if (state is MovieSearchLoading) {
-                    return const Center(
+                  if (state is MovieSearchLoading) {return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else if (state is MovieSearchLoaded) {
                   final result = state.result;
-                  return Expanded(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemBuilder: (context, index) {
-                        final movie = state.result[index];
+                  return Expanded(child: ListView.builder( padding: const EdgeInsets.all(8),
+                      itemBuilder: (context, index) { final movie = state.result[index];
                         return MovieCard(movie);
                       },
                       itemCount: result.length,

@@ -1,24 +1,30 @@
-import '../../dummy_data/dummy_objects_tvclil.dart';
-import '../../helpers/test_helper_tvclil.mocks.dart';
+import '../../dummy_data/dummy_movie_tvclil_object.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sub_bagussh/common/exception.dart';
 import 'package:sub_bagussh/data/datasources/tvclil/tvclil_local_data_source.dart';
 
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 void main() {
-  late TvclilLocalDataSourceImpl 
-  dataSourcetv;
-  late MockDatabaseHelperTvclil 
-  mockDatabaseHelperTv;
+  late 
+    TvclilLocalDataSourceImpl 
+       dataSourcetv;
+  late 
+    MockDatabaseHelperTvclil 
+       mockDatabaseHelperTv;
 
   setUp(() {
+
     mockDatabaseHelperTv = 
-    MockDatabaseHelperTvclil();
+      MockDatabaseHelperTvclil();
     dataSourcetv = 
-    TvclilLocalDataSourceImpl(databaseHelpertvclil: 
-    mockDatabaseHelperTv);
-  });
+      TvclilLocalDataSourceImpl
+
+    (databaseHelpertvclil:  mockDatabaseHelperTv);
+  }
+);
 
   group('save watchlist tv', () {
     test('should return success message when insert to database is success',

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class 
+  // ignore: must_be_immutable
   Tvclil
   
 extends 

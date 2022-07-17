@@ -1,173 +1,383 @@
-part of 'movie_bloc.dart';
+part of 
+'movie_bloc.dart';
 
-abstract class MovieDetailState extends Equatable {
-  const MovieDetailState();
-  @override
-  List<Object> get props => [];
+
+class 
+  MovieDetailEmpty 
+
+extends 
+  MovieDetailState 
+{
+  @override List<Object> get props => [];
 }
 
-class MovieDetailEmpty extends MovieDetailState {}
-class MovieDetailLoading extends MovieDetailState {}
-class MovieDetailError extends MovieDetailState {
-  final String message;
-  const MovieDetailError(this.message);
-  @override
-  List<Object> get props => [message];
-}
-class MovieDetailLoaded extends MovieDetailState {
-  final MovieDetail movieDetail;
-  const MovieDetailLoaded(this.movieDetail);
-  @override
-  List<Object> get props => [movieDetail];
+class 
+  MovieDetailLoading 
+
+extends 
+  MovieDetailState 
+{
+ @override List<Object> get props => [];
 }
 
-//search
-abstract class MovieSearchState extends Equatable {
-  const MovieSearchState();
+class 
+  MovieDetailLoaded 
 
-  @override
-  List<Object> get props => [];
+extends 
+  MovieDetailState 
+
+{ 
+  final 
+   MovieDetail 
+     movieDetail;
+
+   MovieDetailLoaded
+     (this.movieDetail);
+
+  @override List<Object> get props => [movieDetail];
 }
 
-class MovieSearchEmpty extends MovieSearchState {}
+class 
+  MovieDetailError 
 
-class MovieSearchLoading extends MovieSearchState {}
+extends 
+  MovieDetailState
 
-class MovieSearchError extends MovieSearchState {
-  final String message;
+ {
 
-  const MovieSearchError(this.message);
+  final 
+    String message;
+       MovieDetailError(this.message);
 
-  @override
-  List<Object> get props => [message];
+  @override List<Object> get props => [message];
 }
 
-class MovieSearchLoaded extends MovieSearchState {
-  final List<Movie> result;
-
-  const MovieSearchLoaded(this.result);
-
-  @override
-  List<Object> get props => [result];
+abstract class 
+  MovieDetailState 
+    extends Equatable {
 }
 
 
-//toprated
-abstract class MovieTopRatedState extends Equatable {
-  const MovieTopRatedState();
+abstract class
+   MovieSearchState 
+    extends Equatable {const MovieSearchState(
+);
 
-  @override
-  List<Object> get props => [];
+@override List<Object> get props => [];
+
 }
 
-class MovieTopRatedEmpty extends MovieTopRatedState {}
+class 
+  MovieSearchEmpty 
 
-class MovieTopRatedLoading extends MovieTopRatedState {}
-
-class MovieTopRatedError extends MovieTopRatedState {
-  final String message;
-
-  const MovieTopRatedError(this.message);
-
-  @override
-  List<Object> get props => [message];
+extends 
+  MovieSearchState {
 }
 
-class MovieTopRatedLoaded extends MovieTopRatedState {
-  final List<Movie> result;
+class 
+  MovieSearchLoading
 
-  const MovieTopRatedLoaded(this.result);
-
-  @override
-  List<Object> get props => [result];
+ extends 
+    MovieSearchState {
 }
 
-//popular
-abstract class MoviePopularState extends Equatable {
-  const MoviePopularState();
+class 
+  MovieSearchError 
 
-  @override
-  List<Object> get props => [];
+extends 
+  MovieSearchState {
+  
+final 
+    String message;
+
+const 
+    MovieSearchError(this.message);
+
+    @override List<Object> get props => [message];
 }
 
-class MoviePopularEmpty extends MoviePopularState {}
+class 
+ MovieSearchLoaded 
+ 
+extends
+ MovieSearchState {
 
-class MoviePopularLoading extends MoviePopularState {}
+  final List
+    <Movie>
+       result;
 
-class MoviePopularError extends MoviePopularState {
-  final String message;
-
-  const MoviePopularError(this.message);
+  const 
+    MovieSearchLoaded
+    (this.result);
 
   @override
-  List<Object> get props => [message];
+  
+  List<Object>
+     get props 
+      => [result];
 }
 
-class MoviePopularLoaded extends MoviePopularState {
-  final List<Movie> result;
-
-  const MoviePopularLoaded(this.result);
-
-  @override
-  List<Object> get props => [result];
+abstract class 
+  MovieTopRatedState 
+    extends Equatable {
 }
 
-//top_rated
-abstract class MovieRecommendationState extends Equatable {
-  const MovieRecommendationState();
+class MovieTopRatedEmpty 
+  extends MovieTopRatedState {
 
   @override
-  List<Object> get props => [];
+     List<Object>
+      get props => [];
+
 }
 
-class MovieRecommendationEmpty extends MovieRecommendationState {}
+class 
 
-class MovieRecommendationLoading extends MovieRecommendationState {}
+  MovieTopRatedLoading 
 
-class MovieRecommendationError extends MovieRecommendationState {
-  final String message;
+  extends 
 
-  const MovieRecommendationError(this.message);
+MovieTopRatedState
 
-  @override
-  List<Object> get props => [message];
+{
+  @override List<Object> get props => [];
 }
 
-class MovieRecommendationLoaded extends MovieRecommendationState {
-  final List<Movie> movie;
+class
+  MovieTopRatedError 
 
-  const MovieRecommendationLoaded(this.movie);
+extends
+ MovieTopRatedState {
 
-  @override
-  List<Object> get props => [movie];
+final
+  String message;
+ @override
+
+MovieTopRatedError
+  (this.message);
+     List<Object>
+       get props => []; 
 }
 
-//now_play
-abstract class MovieNowPlayingState extends Equatable {
-  const MovieNowPlayingState();
+class 
+  MovieTopRatedLoaded 
+    extends 
+      MovieTopRatedState 
+{
+
+  final 
+    List<Movie>
+       result;
+
+  MovieTopRatedLoaded
+    (this.result);
 
   @override
-  List<Object> get props => [];
+  List<Object> 
+
+  get props =>
+  [result];
+
 }
 
-class MovieNowPlayingEmpty extends MovieNowPlayingState {}
-
-class MovieNowPlayingLoading extends MovieNowPlayingState {}
-
-class MovieNowPlayingError extends MovieNowPlayingState {
-  final String message;
-
-  const MovieNowPlayingError(this.message);
-
-  @override
-  List<Object> get props => [message];
+ abstract class 
+  MoviePopularState 
+  
+extends 
+  Equatable {
 }
 
-class MovieNowPlayingLoaded extends MovieNowPlayingState {
-  final List<Movie> result;
+ class 
+ MoviePopularEmpty 
 
-  const MovieNowPlayingLoaded(this.result);
+ extends
+  MoviePopularState {
+
+  @override List<Object> get props => [];
+
+}
+
+class 
+MoviePopularLoading 
+
+extends 
+MoviePopularState {
+
+  @override List
+    <Object> get props => [];
+}
+
+class 
+MoviePopularError
+
+ extends 
+ MoviePopularState 
+{
+  final 
+    String 
+      message;
+
+  @override List<Object> 
+      get props => [message];
+
+  MoviePopularError(this.message);
+}
+
+class 
+  MoviePopularLoaded 
+
+extends 
+  MoviePopularState 
+{
+  final 
+    List
+     <Movie> 
+       result;
+
+  MoviePopularLoaded
+
+  (this.result); @override
+
+      List<Object> 
+    get props 
+=> [result];
+
+}
+
+
+abstract class
+   MovieRecommendationState 
+
+extends
+   Equatable {
+}
+
+
+class 
+  MovieRecommendationEmpty 
+  
+extends 
+  MovieRecommendationState
+{
 
   @override
-  List<Object> get props => [result];
+   List<Object> 
+      get props => [];
+
+}
+
+class 
+  MovieRecommendationLoading 
+
+extends 
+  MovieRecommendationState {
+
+  @override
+     List<Object>
+      get props => [];
+}
+
+class
+
+MovieRecommendationError 
+
+extends 
+
+MovieRecommendationState {
+
+  @override List<Object>
+    get props 
+      => [message];
+
+  final 
+   String 
+     message;
+
+  MovieRecommendationError
+  (this.message);
+}
+
+class 
+  MovieRecommendationLoaded
+
+  extends 
+    MovieRecommendationState {
+
+final
+  List
+
+  <Movie>
+    movie;
+
+MovieRecommendationLoaded
+    (this.movie);
+
+  @override
+   List<Object> 
+    get props => [movie];
+}
+
+
+abstract class 
+  MovieNowPlayingState
+
+extends 
+  Equatable {
+}
+
+class
+ MovieNowPlayingLoading 
+ extends 
+ MovieNowPlayingState 
+
+{
+ @override
+  List<Object>
+     get props => [];
+}
+
+class MovieNowPlayingError 
+
+extends MovieNowPlayingState {
+
+  final 
+    String 
+      message;
+
+  MovieNowPlayingError(this.message);
+
+ @override List
+  <Object> get props => [];
+  
+}
+
+class 
+  MovieNowPlayingEmpty
+  extends 
+    MovieNowPlayingState 
+{
+ @override
+  List<Object>
+     get props => [];
+}
+
+class 
+  MovieNowPlayingLoaded 
+
+ extends 
+      MovieNowPlayingState {
+
+  final 
+     List
+
+    <Movie>
+        movie;
+
+  MovieNowPlayingLoaded
+  
+    (this.movie); @override
+
+  List<Object> 
+    get props 
+      => [movie];
 }

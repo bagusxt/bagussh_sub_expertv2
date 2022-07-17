@@ -2,25 +2,34 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
-import 'package:sub_bagussh/domain/usecases/movies/get_now_playing_movies.dart';
+
 import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-import 'movie_on_play_test_bloc.mocks.dart';
-
-@GenerateMocks([MovieNowPlayingBloc,GetNowPlayingMovies])
 void main() {
-  late MockGetNowPlayingMovies mockGetNowPlayingMovies;
-  late MovieNowPlayingBloc movieNowPlayingBloc;
+  late 
+    MockGetNowPlayingMovies
+       mockGetNowPlayingMovies;
+
+  late 
+    MovieNowPlayingBloc 
+      movieNowPlayingBloc;
 
   setUp(() {
-    mockGetNowPlayingMovies = MockGetNowPlayingMovies();
-    movieNowPlayingBloc = MovieNowPlayingBloc(mockGetNowPlayingMovies);
-  });
+    mockGetNowPlayingMovies 
+      = MockGetNowPlayingMovies();
 
-  final movieList = <Movie>[];
+    movieNowPlayingBloc
+       = MovieNowPlayingBloc
+        (mockGetNowPlayingMovies);
+   }
+  );
+
+  final 
+    movieList 
+      = <Movie>[];
 
   test("initial state should be empty", () {
     expect(movieNowPlayingBloc.state, MovieNowPlayingEmpty());
@@ -51,7 +60,7 @@ void main() {
       act: (bloc) => bloc.add(MovieNowPlayingGetEvent()),
       expect: () => [
         MovieNowPlayingLoading(),
-        const MovieNowPlayingError('Server Failure')
+        MovieNowPlayingError('Server Failure')
       ],
       verify: (bloc) {
         verify(mockGetNowPlayingMovies.execute());

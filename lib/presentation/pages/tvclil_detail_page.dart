@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
-import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
-
-import 'package:sub_bagussh/domain/entities/tvclil/tvclil_detail.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart'
+;
 import 'package:sub_bagussh/common/constants.dart';
 import 'package:sub_bagussh/domain/entities/genre.dart';
+
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TvclilDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tv';
+import 'package:sub_bagussh/domain/entities/tvclil/tvclil_detail.dart';
+import 'package:sub_bagussh/presentation/bloc/tv/watchlist/tv_watchlist_bloc.dart';
 
-  final int id;
+
+class 
+  TvclilDetailPage 
+    extends StatefulWidget {
+      static const ROUTE_NAME = '/detail-tv';
+final int id;
   TvclilDetailPage({required this.id});
 
   @override
@@ -26,16 +28,10 @@ class _TvDetailPageState extends State<TvclilDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      context
-            .read<TvDetailBloc>()
-            .add(GetTvDetailEvent(widget.id));
-        context
-            .read<TvRecommendationBloc>()
-            .add(GetTvRecommendationEvent(widget.id));
-        context
-            .read<TvWatchlistBloc>()
-            .add(GetStatusTvEvent(widget.id));
+    Future.microtask(() 
+    { context .read<TvDetailBloc>() .add(GetTvDetailEvent(widget.id));
+      context.read<TvRecommendationBloc>() .add(GetTvRecommendationEvent(widget.id));
+      context .read<TvWatchlistBloc>().add(GetStatusTvEvent(widget.id));
     });
   }
 
@@ -87,10 +83,18 @@ class _TvDetailPageState extends State<TvclilDetailPage> {
   }
 }
 
-class DetailContent extends StatelessWidget {
-  final TvclilDetail tv;
-  final List<Tvclil> recommendations;
-  final bool isAddedWatchlistTv;
+class DetailContent 
+
+extends StatelessWidget {
+
+  final 
+  TvclilDetail tv;
+
+  final 
+  List<Tvclil> recommendations;
+
+  final 
+  bool isAddedWatchlistTv;
 
   DetailContent
   (this.tv, this.recommendations, this.isAddedWatchlistTv);
@@ -155,9 +159,7 @@ class DetailContent extends StatelessWidget {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  isAddedWatchlistTv
-                                      ? Icon(Icons.check)
-                                      : Icon(Icons.add),
+                                  isAddedWatchlistTv? Icon(Icons.check)  : Icon(Icons.add),
                                   Text('Watchlist'),
                                 ],
                               ),
@@ -292,18 +294,23 @@ class DetailContent extends StatelessWidget {
     );
   }
 
-  String _showGenres
-  (List<Genre> genres) {
-    String result = '';
-    for (var genre in genres) {
+  String 
+    _showGenres
+  (List<Genre> 
+    genres) {
+     String result = '';
+        for (var genre in genres) {
       result += genre.name + ', ';
     }
 
-    if (result.isEmpty)
+    if
+       (result.isEmpty)
     {
       return result;
     }
 
-    return result.substring(0, result.length - 2);
+    return result.substring
+      (0, result.length - 2);
+      
   }
 }

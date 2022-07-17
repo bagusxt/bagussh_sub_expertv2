@@ -1,26 +1,33 @@
 import 'package:dartz/dartz.dart';
 import 'package:sub_bagussh/common/failure.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
-import 'package:sub_bagussh/domain/usecases/movies/get_popular_movies.dart';
+
 import 'package:sub_bagussh/presentation/bloc/movie/movie_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:bloc_test/bloc_test.dart';
+import '../movie_and_tvclil_test/movie_tvclil_test.mocks.dart';
 
-import 'populares_movie_block_test.mocks.dart';
-
-@GenerateMocks([MoviePopularBloc,GetPopularMovies])
 void main() {
-  late MockGetPopularMovies mockGetPopularMovies;
-  late MoviePopularBloc moviePopularBloc;
+  late
+     MockGetPopularMovies 
+      mockGetPopularMovies;
+  late 
+    MoviePopularBloc 
+      moviePopularBloc;
 
   setUp(() {
-    mockGetPopularMovies = MockGetPopularMovies();
-    moviePopularBloc = MoviePopularBloc(mockGetPopularMovies);
-  });
+    mockGetPopularMovies
+       = MockGetPopularMovies();
 
-  final movieList = <Movie>[];
+    moviePopularBloc 
+      = MoviePopularBloc(mockGetPopularMovies);
+  }
+  );
+
+  final 
+    movieList
+       = <Movie>[];
 
   test("initial state should be empty", () {
     expect(moviePopularBloc.state, MoviePopularEmpty());

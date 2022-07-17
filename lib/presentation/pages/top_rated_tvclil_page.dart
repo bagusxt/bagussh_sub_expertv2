@@ -4,8 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 
-class TopRatedTvclilPage extends StatefulWidget {
-  static const ROUTE_NAME = '/top-rated-tv';
+class TopRatedTvclilPage 
+  extends StatefulWidget {
+
+static const 
+  ROUTE_NAME = '/top-rated-tv';
 
   @override
   _TopRatedTvPageState createState() => _TopRatedTvPageState();
@@ -13,10 +16,9 @@ class TopRatedTvclilPage extends StatefulWidget {
 
 class _TopRatedTvPageState extends State<TopRatedTvclilPage> {
   @override
-  void initState() {
+   void initState() {
     super.initState();
-    Future.microtask(() {
-      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+      Future.microtask(() {context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
     });
   }
 
@@ -44,9 +46,7 @@ class _TopRatedTvPageState extends State<TopRatedTvclilPage> {
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text("Error"),
+              return Center(key: Key('error_message'),  child: Text("Error"),
               );
             }
           },

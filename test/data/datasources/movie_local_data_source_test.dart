@@ -4,17 +4,30 @@ import 'package:mockito/mockito.dart';
 import 'package:sub_bagussh/common/exception.dart';
 import 'package:sub_bagussh/data/datasources/movie/movie_local_data_source.dart';
 
-import '../../dummy_data/dummy_objects.dart';
-import '../../helpers/test_helper.mocks.dart';
+import '../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../../helpers/test_helper_movie_tvclil.mocks.dart';
 
 void main() {
-  late MovieLocalDataSourceImpl dataSource;
-  late MockDatabaseHelper mockDatabaseHelper;
+
+  late 
+    MovieLocalDataSourceImpl
+      dataSource;
+
+  late 
+    MockDatabaseHelper 
+      mockDatabaseHelper;
 
   setUp(() {
-    mockDatabaseHelper = MockDatabaseHelper();
-    dataSource = MovieLocalDataSourceImpl(databaseHelper: mockDatabaseHelper);
-  });
+    mockDatabaseHelper = 
+      MockDatabaseHelper();
+
+    dataSource = 
+      MovieLocalDataSourceImpl
+
+    (databaseHelper: 
+      mockDatabaseHelper);
+  }
+);
 
   group('save watchlist', () {
     test('should return success message when insert to database is success',

@@ -4,28 +4,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sub_bagussh/presentation/bloc/tv/tv_bloc.dart';
 import 'package:sub_bagussh/presentation/widget/tvclil_card_list.dart';
 
-class PopularTvclilPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-tv';
+class 
+  PopularTvclilPage 
+extends 
+  StatefulWidget {
+
+static const 
+  ROUTE_NAME = '/popular-tv';
 
   @override
+
   _PopularTvPageState createState() => _PopularTvPageState();
 }
 
 class _PopularTvPageState extends State<PopularTvclilPage> {
+
   @override
-  void initState() {
-    super.initState();
-    Future.microtask((){
-      context.read<TvPopularBloc>().add(TvPopularGetEvent());
-    });
-  }
+  
+  void initState() {super.initState();
+    Future.microtask((){context.read<TvPopularBloc>().add(TvPopularGetEvent());
+    }
+  );
+}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text
-        ('Popular Tv'),
+        title: Text('Popular Tv'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -44,9 +50,7 @@ class _PopularTvPageState extends State<PopularTvclilPage> {
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text("Error"),
+              return Center(key: Key('error_message'), child: Text("Error"),
               );
             }
           },

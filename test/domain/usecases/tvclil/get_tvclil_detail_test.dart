@@ -3,21 +3,29 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:dartz/dartz.dart';
-import '../../../dummy_data/dummy_objects_tvclil.dart';
-import '../../../helpers/test_helper_tvclil.mocks.dart';
+
+import '../../../dummy_data/dummy_movie_tvclil_object.dart';
+import '../../../helpers/test_helper_movie_tvclil.mocks.dart';
+
 
 void main() {
-  late GetTvclilDetail 
-  usecase;
-  late MockTvclilRepository 
-  mockMovieRepository;
+  late 
+    GetTvclilDetail 
+      usecase;
+
+  late 
+    MockTvclilRepository 
+       mockMovieRepository;
 
   setUp(() {
     mockMovieRepository = 
-    MockTvclilRepository();
+       MockTvclilRepository();
+
     usecase = 
-    GetTvclilDetail(mockMovieRepository);
-  });
+       GetTvclilDetail
+        (mockMovieRepository);
+  }
+  );
 
   final tId = 1;
 
@@ -26,8 +34,11 @@ void main() {
     when(mockMovieRepository.getTvDetail(tId))
         .thenAnswer((_) async => Right(testTvDetail));
     // act
-    final result = await usecase.execute(tId);
+    final result = 
+      await usecase.execute(tId);
     // assert
-    expect(result, Right(testTvDetail));
-  });
+    expect
+      (result, Right(testTvDetail));
+    }
+  );
 }
