@@ -1,11 +1,13 @@
-import 'package:sub_bagussh/data/models/movies/movie_table.dart';
-import 'package:sub_bagussh/data/models/tvclil/tvclil_table.dart';
+import 'package:sub_bagussh/domain/entities/genre.dart';
 
 import 'package:sub_bagussh/domain/entities/movies/movie.dart';
+import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
+
+import 'package:sub_bagussh/data/models/movies/movie_table.dart';
+import 'package:sub_bagussh/data/models/tvclil/tvclil_table.dart';
 import 'package:sub_bagussh/domain/entities/movies/movie_detail.dart';
 import 'package:sub_bagussh/domain/entities/tvclil/tvclil_detail.dart';
-import 'package:sub_bagussh/domain/entities/tvclil/tvclil.dart';
-import 'package:sub_bagussh/domain/entities/genre.dart';
+
 
 final 
   testTv 

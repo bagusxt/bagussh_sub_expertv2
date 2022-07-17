@@ -6,8 +6,8 @@ import 'dart:async' as _i31;
 import 'dart:convert' as _i39;
 import 'dart:typed_data' as _i40;
 
+import 'package:bloc/bloc.dart' as _i32;
 import 'package:dartz/dartz.dart' as _i5;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i32;
 import 'package:http/src/base_request.dart' as _i41;
 import 'package:http/src/client.dart' as _i38;
 import 'package:http/src/response.dart' as _i29;
